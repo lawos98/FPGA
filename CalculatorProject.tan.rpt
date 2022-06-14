@@ -1,0 +1,821 @@
+Classic Timing Analyzer report for CalculatorProject
+Tue Jun 14 12:22:09 2022
+Quartus II Version 9.0 Build 132 02/25/2009 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Timing Analyzer Summary
+  3. Timing Analyzer Settings
+  4. Clock Settings Summary
+  5. Parallel Compilation
+  6. Clock Setup: 'clk'
+  7. Clock Setup: 'opt1'
+  8. Clock Setup: 'opt2'
+  9. tsu
+ 10. tco
+ 11. th
+ 12. Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2009 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Summary                                                                                                                                                                            ;
++------------------------------+-------+---------------+----------------------------------+---------------------------------+---------------------------------+------------+----------+--------------+
+; Type                         ; Slack ; Required Time ; Actual Time                      ; From                            ; To                              ; From Clock ; To Clock ; Failed Paths ;
++------------------------------+-------+---------------+----------------------------------+---------------------------------+---------------------------------+------------+----------+--------------+
+; Worst-case tsu               ; N/A   ; None          ; 82.500 ns                        ; opt2                            ; LedOut1[5]~reg0                 ; --         ; clk      ; 0            ;
+; Worst-case tco               ; N/A   ; None          ; 18.400 ns                        ; LedOut2[2]~reg0                 ; LedOut2[2]                      ; clk        ; --       ; 0            ;
+; Worst-case th                ; N/A   ; None          ; 15.200 ns                        ; num2[2]                         ; Calculator:calc|numberInput2[2] ; --         ; opt2     ; 0            ;
+; Clock Setup: 'opt2'          ; N/A   ; None          ; 26.18 MHz ( period = 38.200 ns ) ; Calculator:calc|numberInput2[1] ; Calculator:calc|numberOutput[5] ; opt2       ; opt2     ; 0            ;
+; Clock Setup: 'opt1'          ; N/A   ; None          ; 26.18 MHz ( period = 38.200 ns ) ; Calculator:calc|numberInput2[1] ; Calculator:calc|numberOutput[5] ; opt1       ; opt1     ; 0            ;
+; Clock Setup: 'clk'           ; N/A   ; None          ; 85.47 MHz ( period = 11.700 ns ) ; counter[0]                      ; LedOut1[6]~reg0                 ; clk        ; clk      ; 0            ;
+; Total number of failed paths ;       ;               ;                                  ;                                 ;                                 ;            ;          ; 0            ;
++------------------------------+-------+---------------+----------------------------------+---------------------------------+---------------------------------+------------+----------+--------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Settings                                                                                           ;
++---------------------------------------------------------------------+--------------------+------+----+-------------+
+; Option                                                              ; Setting            ; From ; To ; Entity Name ;
++---------------------------------------------------------------------+--------------------+------+----+-------------+
+; Device Name                                                         ; EPF10K70RC240-4    ;      ;    ;             ;
+; Timing Models                                                       ; Final              ;      ;    ;             ;
+; Default hold multicycle                                             ; Same as Multicycle ;      ;    ;             ;
+; Cut paths between unrelated clock domains                           ; On                 ;      ;    ;             ;
+; Cut off read during write signal paths                              ; On                 ;      ;    ;             ;
+; Cut off feedback from I/O pins                                      ; On                 ;      ;    ;             ;
+; Report Combined Fast/Slow Timing                                    ; Off                ;      ;    ;             ;
+; Ignore Clock Settings                                               ; Off                ;      ;    ;             ;
+; Analyze latches as synchronous elements                             ; On                 ;      ;    ;             ;
+; Enable Recovery/Removal analysis                                    ; Off                ;      ;    ;             ;
+; Enable Clock Latency                                                ; Off                ;      ;    ;             ;
+; Use TimeQuest Timing Analyzer                                       ; Off                ;      ;    ;             ;
+; Minimum Core Junction Temperature                                   ; 0                  ;      ;    ;             ;
+; Maximum Core Junction Temperature                                   ; 85                 ;      ;    ;             ;
+; Number of source nodes to report per destination node               ; 10                 ;      ;    ;             ;
+; Number of destination nodes to report                               ; 10                 ;      ;    ;             ;
+; Number of paths to report                                           ; 200                ;      ;    ;             ;
+; Report Minimum Timing Checks                                        ; Off                ;      ;    ;             ;
+; Use Fast Timing Models                                              ; Off                ;      ;    ;             ;
+; Report IO Paths Separately                                          ; Off                ;      ;    ;             ;
+; Perform Multicorner Analysis                                        ; Off                ;      ;    ;             ;
+; Reports the worst-case path for each clock domain and analysis      ; Off                ;      ;    ;             ;
+; Removes common clock path pessimism (CCPP) during slack computation ; Off                ;      ;    ;             ;
+; Output I/O Timing Endpoint                                          ; Near End           ;      ;    ;             ;
++---------------------------------------------------------------------+--------------------+------+----+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Settings Summary                                                                                                                                                             ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; Clock Node Name ; Clock Setting Name ; Type     ; Fmax Requirement ; Early Latency ; Late Latency ; Based on ; Multiply Base Fmax by ; Divide Base Fmax by ; Offset ; Phase offset ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; clk             ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
+; num2[0]         ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
+; num1[2]         ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
+; num2[1]         ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
+; num1[1]         ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
+; num1[3]         ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
+; num2[3]         ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
+; num2[2]         ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
+; opt1            ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
+; num1[0]         ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
+; opt2            ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 4      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Setup: 'clk'                                                                                                                                                                                ;
++-------+------------------------------------------------+------------+-----------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; Slack ; Actual fmax (period)                           ; From       ; To              ; From Clock ; To Clock ; Required Setup Relationship ; Required Longest P2P Time ; Actual Longest P2P Time ;
++-------+------------------------------------------------+------------+-----------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; N/A   ; 85.47 MHz ( period = 11.700 ns )               ; counter[1] ; LedOut1[2]~reg0 ; clk        ; clk      ; None                        ; None                      ; 7.700 ns                ;
+; N/A   ; 85.47 MHz ( period = 11.700 ns )               ; counter[0] ; LedOut1[2]~reg0 ; clk        ; clk      ; None                        ; None                      ; 7.700 ns                ;
+; N/A   ; 85.47 MHz ( period = 11.700 ns )               ; counter[1] ; LedOut1[3]~reg0 ; clk        ; clk      ; None                        ; None                      ; 7.700 ns                ;
+; N/A   ; 85.47 MHz ( period = 11.700 ns )               ; counter[0] ; LedOut1[3]~reg0 ; clk        ; clk      ; None                        ; None                      ; 7.700 ns                ;
+; N/A   ; 85.47 MHz ( period = 11.700 ns )               ; counter[1] ; LedOut1[5]~reg0 ; clk        ; clk      ; None                        ; None                      ; 7.700 ns                ;
+; N/A   ; 85.47 MHz ( period = 11.700 ns )               ; counter[0] ; LedOut1[5]~reg0 ; clk        ; clk      ; None                        ; None                      ; 7.700 ns                ;
+; N/A   ; 85.47 MHz ( period = 11.700 ns )               ; counter[1] ; LedOut1[6]~reg0 ; clk        ; clk      ; None                        ; None                      ; 7.700 ns                ;
+; N/A   ; 85.47 MHz ( period = 11.700 ns )               ; counter[0] ; LedOut1[6]~reg0 ; clk        ; clk      ; None                        ; None                      ; 7.700 ns                ;
+; N/A   ; 86.21 MHz ( period = 11.600 ns )               ; counter[1] ; LedOut1[1]~reg0 ; clk        ; clk      ; None                        ; None                      ; 7.600 ns                ;
+; N/A   ; 86.21 MHz ( period = 11.600 ns )               ; counter[0] ; LedOut1[1]~reg0 ; clk        ; clk      ; None                        ; None                      ; 7.600 ns                ;
+; N/A   ; 86.21 MHz ( period = 11.600 ns )               ; counter[1] ; LedOut1[4]~reg0 ; clk        ; clk      ; None                        ; None                      ; 7.600 ns                ;
+; N/A   ; 86.21 MHz ( period = 11.600 ns )               ; counter[0] ; LedOut1[4]~reg0 ; clk        ; clk      ; None                        ; None                      ; 7.600 ns                ;
+; N/A   ; 86.21 MHz ( period = 11.600 ns )               ; counter[1] ; LedOut2[2]~reg0 ; clk        ; clk      ; None                        ; None                      ; 7.600 ns                ;
+; N/A   ; 86.21 MHz ( period = 11.600 ns )               ; counter[0] ; LedOut2[2]~reg0 ; clk        ; clk      ; None                        ; None                      ; 7.600 ns                ;
+; N/A   ; 86.21 MHz ( period = 11.600 ns )               ; counter[1] ; LedOut2[4]~reg0 ; clk        ; clk      ; None                        ; None                      ; 7.600 ns                ;
+; N/A   ; 86.21 MHz ( period = 11.600 ns )               ; counter[0] ; LedOut2[4]~reg0 ; clk        ; clk      ; None                        ; None                      ; 7.600 ns                ;
+; N/A   ; 86.96 MHz ( period = 11.500 ns )               ; counter[1] ; LedOut2[3]~reg0 ; clk        ; clk      ; None                        ; None                      ; 7.500 ns                ;
+; N/A   ; 86.96 MHz ( period = 11.500 ns )               ; counter[0] ; LedOut2[3]~reg0 ; clk        ; clk      ; None                        ; None                      ; 7.500 ns                ;
+; N/A   ; 86.96 MHz ( period = 11.500 ns )               ; counter[1] ; LedOut2[5]~reg0 ; clk        ; clk      ; None                        ; None                      ; 7.500 ns                ;
+; N/A   ; 86.96 MHz ( period = 11.500 ns )               ; counter[0] ; LedOut2[5]~reg0 ; clk        ; clk      ; None                        ; None                      ; 7.500 ns                ;
+; N/A   ; 86.96 MHz ( period = 11.500 ns )               ; counter[1] ; LedOut2[6]~reg0 ; clk        ; clk      ; None                        ; None                      ; 7.500 ns                ;
+; N/A   ; 86.96 MHz ( period = 11.500 ns )               ; counter[0] ; LedOut2[6]~reg0 ; clk        ; clk      ; None                        ; None                      ; 7.500 ns                ;
+; N/A   ; 87.72 MHz ( period = 11.400 ns )               ; counter[2] ; LedOut1[2]~reg0 ; clk        ; clk      ; None                        ; None                      ; 7.400 ns                ;
+; N/A   ; 87.72 MHz ( period = 11.400 ns )               ; counter[2] ; LedOut1[3]~reg0 ; clk        ; clk      ; None                        ; None                      ; 7.400 ns                ;
+; N/A   ; 87.72 MHz ( period = 11.400 ns )               ; counter[2] ; LedOut1[5]~reg0 ; clk        ; clk      ; None                        ; None                      ; 7.400 ns                ;
+; N/A   ; 87.72 MHz ( period = 11.400 ns )               ; counter[2] ; LedOut1[6]~reg0 ; clk        ; clk      ; None                        ; None                      ; 7.400 ns                ;
+; N/A   ; 88.50 MHz ( period = 11.300 ns )               ; counter[2] ; LedOut1[1]~reg0 ; clk        ; clk      ; None                        ; None                      ; 7.300 ns                ;
+; N/A   ; 88.50 MHz ( period = 11.300 ns )               ; counter[2] ; LedOut1[4]~reg0 ; clk        ; clk      ; None                        ; None                      ; 7.300 ns                ;
+; N/A   ; 88.50 MHz ( period = 11.300 ns )               ; counter[2] ; LedOut2[2]~reg0 ; clk        ; clk      ; None                        ; None                      ; 7.300 ns                ;
+; N/A   ; 88.50 MHz ( period = 11.300 ns )               ; counter[2] ; LedOut2[4]~reg0 ; clk        ; clk      ; None                        ; None                      ; 7.300 ns                ;
+; N/A   ; 89.29 MHz ( period = 11.200 ns )               ; counter[2] ; LedOut2[3]~reg0 ; clk        ; clk      ; None                        ; None                      ; 7.200 ns                ;
+; N/A   ; 89.29 MHz ( period = 11.200 ns )               ; counter[2] ; LedOut2[5]~reg0 ; clk        ; clk      ; None                        ; None                      ; 7.200 ns                ;
+; N/A   ; 89.29 MHz ( period = 11.200 ns )               ; counter[2] ; LedOut2[6]~reg0 ; clk        ; clk      ; None                        ; None                      ; 7.200 ns                ;
+; N/A   ; 112.36 MHz ( period = 8.900 ns )               ; counter[1] ; LedOut1[0]~reg0 ; clk        ; clk      ; None                        ; None                      ; 4.900 ns                ;
+; N/A   ; 112.36 MHz ( period = 8.900 ns )               ; counter[0] ; LedOut1[0]~reg0 ; clk        ; clk      ; None                        ; None                      ; 4.900 ns                ;
+; N/A   ; 112.36 MHz ( period = 8.900 ns )               ; counter[1] ; counter[1]      ; clk        ; clk      ; None                        ; None                      ; 4.900 ns                ;
+; N/A   ; 112.36 MHz ( period = 8.900 ns )               ; counter[1] ; counter[0]      ; clk        ; clk      ; None                        ; None                      ; 4.900 ns                ;
+; N/A   ; 112.36 MHz ( period = 8.900 ns )               ; counter[1] ; counter[2]      ; clk        ; clk      ; None                        ; None                      ; 4.900 ns                ;
+; N/A   ; 112.36 MHz ( period = 8.900 ns )               ; counter[1] ; LedOut2[0]~reg0 ; clk        ; clk      ; None                        ; None                      ; 4.900 ns                ;
+; N/A   ; 112.36 MHz ( period = 8.900 ns )               ; counter[0] ; LedOut2[0]~reg0 ; clk        ; clk      ; None                        ; None                      ; 4.900 ns                ;
+; N/A   ; 112.36 MHz ( period = 8.900 ns )               ; counter[1] ; LedOut2[1]~reg0 ; clk        ; clk      ; None                        ; None                      ; 4.900 ns                ;
+; N/A   ; 112.36 MHz ( period = 8.900 ns )               ; counter[0] ; LedOut2[1]~reg0 ; clk        ; clk      ; None                        ; None                      ; 4.900 ns                ;
+; N/A   ; 116.28 MHz ( period = 8.600 ns )               ; counter[2] ; LedOut1[0]~reg0 ; clk        ; clk      ; None                        ; None                      ; 4.600 ns                ;
+; N/A   ; 116.28 MHz ( period = 8.600 ns )               ; counter[2] ; counter[1]      ; clk        ; clk      ; None                        ; None                      ; 4.600 ns                ;
+; N/A   ; 116.28 MHz ( period = 8.600 ns )               ; counter[2] ; counter[0]      ; clk        ; clk      ; None                        ; None                      ; 4.600 ns                ;
+; N/A   ; 116.28 MHz ( period = 8.600 ns )               ; counter[2] ; counter[2]      ; clk        ; clk      ; None                        ; None                      ; 4.600 ns                ;
+; N/A   ; 116.28 MHz ( period = 8.600 ns )               ; counter[2] ; LedOut2[0]~reg0 ; clk        ; clk      ; None                        ; None                      ; 4.600 ns                ;
+; N/A   ; 116.28 MHz ( period = 8.600 ns )               ; counter[2] ; LedOut2[1]~reg0 ; clk        ; clk      ; None                        ; None                      ; 4.600 ns                ;
+; N/A   ; Restricted to 125.00 MHz ( period = 8.000 ns ) ; counter[0] ; counter[1]      ; clk        ; clk      ; None                        ; None                      ; 2.500 ns                ;
+; N/A   ; Restricted to 125.00 MHz ( period = 8.000 ns ) ; counter[0] ; counter[2]      ; clk        ; clk      ; None                        ; None                      ; 2.500 ns                ;
+; N/A   ; Restricted to 125.00 MHz ( period = 8.000 ns ) ; counter[0] ; counter[0]      ; clk        ; clk      ; None                        ; None                      ; 2.200 ns                ;
++-------+------------------------------------------------+------------+-----------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Setup: 'opt1'                                                                                                                                                                                                      ;
++-------+----------------------------------+---------------------------------+---------------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; Slack ; Actual fmax (period)             ; From                            ; To                              ; From Clock ; To Clock ; Required Setup Relationship ; Required Longest P2P Time ; Actual Longest P2P Time ;
++-------+----------------------------------+---------------------------------+---------------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; N/A   ; 26.18 MHz ( period = 38.200 ns ) ; Calculator:calc|numberInput2[1] ; Calculator:calc|numberOutput[6] ; opt1       ; opt1     ; None                        ; None                      ; 30.700 ns               ;
+; N/A   ; 26.18 MHz ( period = 38.200 ns ) ; Calculator:calc|numberInput2[1] ; Calculator:calc|numberOutput[5] ; opt1       ; opt1     ; None                        ; None                      ; 30.500 ns               ;
+; N/A   ; 26.60 MHz ( period = 37.600 ns ) ; Calculator:calc|numberInput2[0] ; Calculator:calc|numberOutput[6] ; opt1       ; opt1     ; None                        ; None                      ; 30.000 ns               ;
+; N/A   ; 26.60 MHz ( period = 37.600 ns ) ; Calculator:calc|numberInput2[0] ; Calculator:calc|numberOutput[5] ; opt1       ; opt1     ; None                        ; None                      ; 29.800 ns               ;
+; N/A   ; 26.74 MHz ( period = 37.400 ns ) ; Calculator:calc|numberInput2[2] ; Calculator:calc|numberOutput[6] ; opt1       ; opt1     ; None                        ; None                      ; 29.800 ns               ;
+; N/A   ; 26.74 MHz ( period = 37.400 ns ) ; Calculator:calc|numberInput2[2] ; Calculator:calc|numberOutput[5] ; opt1       ; opt1     ; None                        ; None                      ; 29.600 ns               ;
+; N/A   ; 26.81 MHz ( period = 37.300 ns ) ; Calculator:calc|numberInput2[1] ; Calculator:calc|numberOutput[7] ; opt1       ; opt1     ; None                        ; None                      ; 31.000 ns               ;
+; N/A   ; 27.25 MHz ( period = 36.700 ns ) ; Calculator:calc|numberInput2[0] ; Calculator:calc|numberOutput[7] ; opt1       ; opt1     ; None                        ; None                      ; 30.300 ns               ;
+; N/A   ; 27.32 MHz ( period = 36.600 ns ) ; Calculator:calc|numberInput2[1] ; Calculator:calc|numberOutput[1] ; opt1       ; opt1     ; None                        ; None                      ; 27.800 ns               ;
+; N/A   ; 27.47 MHz ( period = 36.400 ns ) ; Calculator:calc|numberInput2[2] ; Calculator:calc|numberOutput[7] ; opt1       ; opt1     ; None                        ; None                      ; 30.000 ns               ;
+; N/A   ; 27.55 MHz ( period = 36.300 ns ) ; Calculator:calc|numberInput2[0] ; Calculator:calc|numberOutput[1] ; opt1       ; opt1     ; None                        ; None                      ; 27.400 ns               ;
+; N/A   ; 27.55 MHz ( period = 36.300 ns ) ; Calculator:calc|numberInput2[1] ; Calculator:calc|numberOutput[3] ; opt1       ; opt1     ; None                        ; None                      ; 30.700 ns               ;
+; N/A   ; 27.78 MHz ( period = 36.000 ns ) ; Calculator:calc|numberInput2[1] ; Calculator:calc|numberOutput[4] ; opt1       ; opt1     ; None                        ; None                      ; 30.200 ns               ;
+; N/A   ; 27.93 MHz ( period = 35.800 ns ) ; Calculator:calc|numberInput2[0] ; Calculator:calc|numberOutput[4] ; opt1       ; opt1     ; None                        ; None                      ; 29.900 ns               ;
+; N/A   ; 28.17 MHz ( period = 35.500 ns ) ; Calculator:calc|numberInput2[2] ; Calculator:calc|numberOutput[4] ; opt1       ; opt1     ; None                        ; None                      ; 29.600 ns               ;
+; N/A   ; 28.57 MHz ( period = 35.000 ns ) ; Calculator:calc|numberInput2[3] ; Calculator:calc|numberOutput[5] ; opt1       ; opt1     ; None                        ; None                      ; 27.300 ns               ;
+; N/A   ; 28.65 MHz ( period = 34.900 ns ) ; Calculator:calc|numberInput2[3] ; Calculator:calc|numberOutput[6] ; opt1       ; opt1     ; None                        ; None                      ; 27.400 ns               ;
+; N/A   ; 29.41 MHz ( period = 34.000 ns ) ; Calculator:calc|numberInput2[3] ; Calculator:calc|numberOutput[7] ; opt1       ; opt1     ; None                        ; None                      ; 27.700 ns               ;
+; N/A   ; 29.50 MHz ( period = 33.900 ns ) ; Calculator:calc|numberInput2[1] ; Calculator:calc|numberOutput[2] ; opt1       ; opt1     ; None                        ; None                      ; 28.400 ns               ;
+; N/A   ; 29.85 MHz ( period = 33.500 ns ) ; Calculator:calc|numberInput2[0] ; Calculator:calc|numberOutput[3] ; opt1       ; opt1     ; None                        ; None                      ; 27.800 ns               ;
+; N/A   ; 29.85 MHz ( period = 33.500 ns ) ; Calculator:calc|numberInput2[0] ; Calculator:calc|numberOutput[2] ; opt1       ; opt1     ; None                        ; None                      ; 27.900 ns               ;
+; N/A   ; 30.21 MHz ( period = 33.100 ns ) ; Calculator:calc|numberInput2[3] ; Calculator:calc|numberOutput[4] ; opt1       ; opt1     ; None                        ; None                      ; 27.300 ns               ;
+; N/A   ; 30.40 MHz ( period = 32.900 ns ) ; Calculator:calc|numberInput1[3] ; Calculator:calc|numberOutput[6] ; opt1       ; opt1     ; None                        ; None                      ; 25.200 ns               ;
+; N/A   ; 30.40 MHz ( period = 32.900 ns ) ; Calculator:calc|numberInput1[3] ; Calculator:calc|numberOutput[5] ; opt1       ; opt1     ; None                        ; None                      ; 25.000 ns               ;
+; N/A   ; 30.67 MHz ( period = 32.600 ns ) ; Calculator:calc|numberInput1[1] ; Calculator:calc|numberOutput[6] ; opt1       ; opt1     ; None                        ; None                      ; 24.900 ns               ;
+; N/A   ; 30.67 MHz ( period = 32.600 ns ) ; Calculator:calc|numberInput1[1] ; Calculator:calc|numberOutput[5] ; opt1       ; opt1     ; None                        ; None                      ; 24.700 ns               ;
+; N/A   ; 30.86 MHz ( period = 32.400 ns ) ; Calculator:calc|numberInput1[2] ; Calculator:calc|numberOutput[6] ; opt1       ; opt1     ; None                        ; None                      ; 25.100 ns               ;
+; N/A   ; 30.86 MHz ( period = 32.400 ns ) ; Calculator:calc|numberInput1[2] ; Calculator:calc|numberOutput[5] ; opt1       ; opt1     ; None                        ; None                      ; 24.900 ns               ;
+; N/A   ; 31.25 MHz ( period = 32.000 ns ) ; Calculator:calc|numberInput1[3] ; Calculator:calc|numberOutput[7] ; opt1       ; opt1     ; None                        ; None                      ; 25.500 ns               ;
+; N/A   ; 31.55 MHz ( period = 31.700 ns ) ; Calculator:calc|numberInput1[1] ; Calculator:calc|numberOutput[7] ; opt1       ; opt1     ; None                        ; None                      ; 25.200 ns               ;
+; N/A   ; 31.75 MHz ( period = 31.500 ns ) ; Calculator:calc|numberInput1[2] ; Calculator:calc|numberOutput[7] ; opt1       ; opt1     ; None                        ; None                      ; 25.400 ns               ;
+; N/A   ; 32.26 MHz ( period = 31.000 ns ) ; Calculator:calc|numberInput1[3] ; Calculator:calc|numberOutput[3] ; opt1       ; opt1     ; None                        ; None                      ; 25.200 ns               ;
+; N/A   ; 32.47 MHz ( period = 30.800 ns ) ; Calculator:calc|numberInput2[2] ; Calculator:calc|numberOutput[3] ; opt1       ; opt1     ; None                        ; None                      ; 25.100 ns               ;
+; N/A   ; 32.47 MHz ( period = 30.800 ns ) ; Calculator:calc|numberInput1[3] ; Calculator:calc|numberOutput[4] ; opt1       ; opt1     ; None                        ; None                      ; 24.800 ns               ;
+; N/A   ; 32.47 MHz ( period = 30.800 ns ) ; Calculator:calc|numberInput1[1] ; Calculator:calc|numberOutput[4] ; opt1       ; opt1     ; None                        ; None                      ; 24.800 ns               ;
+; N/A   ; 32.57 MHz ( period = 30.700 ns ) ; Calculator:calc|numberInput2[0] ; Calculator:calc|numberOutput[0] ; opt1       ; opt1     ; None                        ; None                      ; 25.300 ns               ;
+; N/A   ; 32.57 MHz ( period = 30.700 ns ) ; Calculator:calc|numberInput2[2] ; Calculator:calc|numberOutput[2] ; opt1       ; opt1     ; None                        ; None                      ; 25.100 ns               ;
+; N/A   ; 32.68 MHz ( period = 30.600 ns ) ; Calculator:calc|numberInput2[1] ; Calculator:calc|numberOutput[0] ; opt1       ; opt1     ; None                        ; None                      ; 25.300 ns               ;
+; N/A   ; 32.79 MHz ( period = 30.500 ns ) ; Calculator:calc|numberInput1[2] ; Calculator:calc|numberOutput[3] ; opt1       ; opt1     ; None                        ; None                      ; 25.100 ns               ;
+; N/A   ; 32.89 MHz ( period = 30.400 ns ) ; Calculator:calc|numberInput2[3] ; Calculator:calc|numberOutput[3] ; opt1       ; opt1     ; None                        ; None                      ; 24.800 ns               ;
+; N/A   ; 33.11 MHz ( period = 30.200 ns ) ; Calculator:calc|numberInput1[2] ; Calculator:calc|numberOutput[4] ; opt1       ; opt1     ; None                        ; None                      ; 24.600 ns               ;
+; N/A   ; 33.22 MHz ( period = 30.100 ns ) ; Calculator:calc|numberInput2[3] ; Calculator:calc|numberOutput[2] ; opt1       ; opt1     ; None                        ; None                      ; 24.600 ns               ;
+; N/A   ; 34.84 MHz ( period = 28.700 ns ) ; Calculator:calc|numberInput1[1] ; Calculator:calc|numberOutput[3] ; opt1       ; opt1     ; None                        ; None                      ; 22.900 ns               ;
+; N/A   ; 34.84 MHz ( period = 28.700 ns ) ; Calculator:calc|numberInput1[1] ; Calculator:calc|numberOutput[2] ; opt1       ; opt1     ; None                        ; None                      ; 23.000 ns               ;
+; N/A   ; 35.09 MHz ( period = 28.500 ns ) ; Calculator:calc|numberInput1[0] ; Calculator:calc|numberOutput[1] ; opt1       ; opt1     ; None                        ; None                      ; 19.500 ns               ;
+; N/A   ; 35.09 MHz ( period = 28.500 ns ) ; Calculator:calc|numberInput1[1] ; Calculator:calc|numberOutput[1] ; opt1       ; opt1     ; None                        ; None                      ; 19.500 ns               ;
+; N/A   ; 35.71 MHz ( period = 28.000 ns ) ; Calculator:calc|numberInput1[2] ; Calculator:calc|numberOutput[2] ; opt1       ; opt1     ; None                        ; None                      ; 22.700 ns               ;
+; N/A   ; 38.76 MHz ( period = 25.800 ns ) ; Calculator:calc|numberInput1[0] ; Calculator:calc|numberOutput[6] ; opt1       ; opt1     ; None                        ; None                      ; 18.100 ns               ;
+; N/A   ; 38.76 MHz ( period = 25.800 ns ) ; Calculator:calc|numberInput1[0] ; Calculator:calc|numberOutput[5] ; opt1       ; opt1     ; None                        ; None                      ; 17.900 ns               ;
+; N/A   ; 40.16 MHz ( period = 24.900 ns ) ; Calculator:calc|numberInput1[0] ; Calculator:calc|numberOutput[7] ; opt1       ; opt1     ; None                        ; None                      ; 18.400 ns               ;
+; N/A   ; 42.37 MHz ( period = 23.600 ns ) ; Calculator:calc|numberInput1[0] ; Calculator:calc|numberOutput[4] ; opt1       ; opt1     ; None                        ; None                      ; 17.600 ns               ;
+; N/A   ; 42.55 MHz ( period = 23.500 ns ) ; Calculator:calc|numberInput1[0] ; Calculator:calc|numberOutput[3] ; opt1       ; opt1     ; None                        ; None                      ; 17.700 ns               ;
+; N/A   ; 43.29 MHz ( period = 23.100 ns ) ; Calculator:calc|numberInput1[0] ; Calculator:calc|numberOutput[2] ; opt1       ; opt1     ; None                        ; None                      ; 17.400 ns               ;
+; N/A   ; 43.86 MHz ( period = 22.800 ns ) ; Calculator:calc|numberInput1[0] ; Calculator:calc|numberOutput[0] ; opt1       ; opt1     ; None                        ; None                      ; 17.300 ns               ;
++-------+----------------------------------+---------------------------------+---------------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Setup: 'opt2'                                                                                                                                                                                                      ;
++-------+----------------------------------+---------------------------------+---------------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; Slack ; Actual fmax (period)             ; From                            ; To                              ; From Clock ; To Clock ; Required Setup Relationship ; Required Longest P2P Time ; Actual Longest P2P Time ;
++-------+----------------------------------+---------------------------------+---------------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; N/A   ; 26.18 MHz ( period = 38.200 ns ) ; Calculator:calc|numberInput2[1] ; Calculator:calc|numberOutput[6] ; opt2       ; opt2     ; None                        ; None                      ; 30.700 ns               ;
+; N/A   ; 26.18 MHz ( period = 38.200 ns ) ; Calculator:calc|numberInput2[1] ; Calculator:calc|numberOutput[5] ; opt2       ; opt2     ; None                        ; None                      ; 30.500 ns               ;
+; N/A   ; 26.60 MHz ( period = 37.600 ns ) ; Calculator:calc|numberInput2[0] ; Calculator:calc|numberOutput[6] ; opt2       ; opt2     ; None                        ; None                      ; 30.000 ns               ;
+; N/A   ; 26.60 MHz ( period = 37.600 ns ) ; Calculator:calc|numberInput2[0] ; Calculator:calc|numberOutput[5] ; opt2       ; opt2     ; None                        ; None                      ; 29.800 ns               ;
+; N/A   ; 26.74 MHz ( period = 37.400 ns ) ; Calculator:calc|numberInput2[2] ; Calculator:calc|numberOutput[6] ; opt2       ; opt2     ; None                        ; None                      ; 29.800 ns               ;
+; N/A   ; 26.74 MHz ( period = 37.400 ns ) ; Calculator:calc|numberInput2[2] ; Calculator:calc|numberOutput[5] ; opt2       ; opt2     ; None                        ; None                      ; 29.600 ns               ;
+; N/A   ; 26.81 MHz ( period = 37.300 ns ) ; Calculator:calc|numberInput2[1] ; Calculator:calc|numberOutput[7] ; opt2       ; opt2     ; None                        ; None                      ; 31.000 ns               ;
+; N/A   ; 27.25 MHz ( period = 36.700 ns ) ; Calculator:calc|numberInput2[0] ; Calculator:calc|numberOutput[7] ; opt2       ; opt2     ; None                        ; None                      ; 30.300 ns               ;
+; N/A   ; 27.32 MHz ( period = 36.600 ns ) ; Calculator:calc|numberInput2[1] ; Calculator:calc|numberOutput[1] ; opt2       ; opt2     ; None                        ; None                      ; 27.800 ns               ;
+; N/A   ; 27.47 MHz ( period = 36.400 ns ) ; Calculator:calc|numberInput2[2] ; Calculator:calc|numberOutput[7] ; opt2       ; opt2     ; None                        ; None                      ; 30.000 ns               ;
+; N/A   ; 27.55 MHz ( period = 36.300 ns ) ; Calculator:calc|numberInput2[0] ; Calculator:calc|numberOutput[1] ; opt2       ; opt2     ; None                        ; None                      ; 27.400 ns               ;
+; N/A   ; 27.55 MHz ( period = 36.300 ns ) ; Calculator:calc|numberInput2[1] ; Calculator:calc|numberOutput[3] ; opt2       ; opt2     ; None                        ; None                      ; 30.700 ns               ;
+; N/A   ; 27.78 MHz ( period = 36.000 ns ) ; Calculator:calc|numberInput2[1] ; Calculator:calc|numberOutput[4] ; opt2       ; opt2     ; None                        ; None                      ; 30.200 ns               ;
+; N/A   ; 27.93 MHz ( period = 35.800 ns ) ; Calculator:calc|numberInput2[0] ; Calculator:calc|numberOutput[4] ; opt2       ; opt2     ; None                        ; None                      ; 29.900 ns               ;
+; N/A   ; 28.17 MHz ( period = 35.500 ns ) ; Calculator:calc|numberInput2[2] ; Calculator:calc|numberOutput[4] ; opt2       ; opt2     ; None                        ; None                      ; 29.600 ns               ;
+; N/A   ; 28.57 MHz ( period = 35.000 ns ) ; Calculator:calc|numberInput2[3] ; Calculator:calc|numberOutput[5] ; opt2       ; opt2     ; None                        ; None                      ; 27.300 ns               ;
+; N/A   ; 28.65 MHz ( period = 34.900 ns ) ; Calculator:calc|numberInput2[3] ; Calculator:calc|numberOutput[6] ; opt2       ; opt2     ; None                        ; None                      ; 27.400 ns               ;
+; N/A   ; 29.41 MHz ( period = 34.000 ns ) ; Calculator:calc|numberInput2[3] ; Calculator:calc|numberOutput[7] ; opt2       ; opt2     ; None                        ; None                      ; 27.700 ns               ;
+; N/A   ; 29.50 MHz ( period = 33.900 ns ) ; Calculator:calc|numberInput2[1] ; Calculator:calc|numberOutput[2] ; opt2       ; opt2     ; None                        ; None                      ; 28.400 ns               ;
+; N/A   ; 29.85 MHz ( period = 33.500 ns ) ; Calculator:calc|numberInput2[0] ; Calculator:calc|numberOutput[3] ; opt2       ; opt2     ; None                        ; None                      ; 27.800 ns               ;
+; N/A   ; 29.85 MHz ( period = 33.500 ns ) ; Calculator:calc|numberInput2[0] ; Calculator:calc|numberOutput[2] ; opt2       ; opt2     ; None                        ; None                      ; 27.900 ns               ;
+; N/A   ; 30.21 MHz ( period = 33.100 ns ) ; Calculator:calc|numberInput2[3] ; Calculator:calc|numberOutput[4] ; opt2       ; opt2     ; None                        ; None                      ; 27.300 ns               ;
+; N/A   ; 30.40 MHz ( period = 32.900 ns ) ; Calculator:calc|numberInput1[3] ; Calculator:calc|numberOutput[6] ; opt2       ; opt2     ; None                        ; None                      ; 25.200 ns               ;
+; N/A   ; 30.40 MHz ( period = 32.900 ns ) ; Calculator:calc|numberInput1[3] ; Calculator:calc|numberOutput[5] ; opt2       ; opt2     ; None                        ; None                      ; 25.000 ns               ;
+; N/A   ; 30.67 MHz ( period = 32.600 ns ) ; Calculator:calc|numberInput1[1] ; Calculator:calc|numberOutput[6] ; opt2       ; opt2     ; None                        ; None                      ; 24.900 ns               ;
+; N/A   ; 30.67 MHz ( period = 32.600 ns ) ; Calculator:calc|numberInput1[1] ; Calculator:calc|numberOutput[5] ; opt2       ; opt2     ; None                        ; None                      ; 24.700 ns               ;
+; N/A   ; 30.86 MHz ( period = 32.400 ns ) ; Calculator:calc|numberInput1[2] ; Calculator:calc|numberOutput[6] ; opt2       ; opt2     ; None                        ; None                      ; 25.100 ns               ;
+; N/A   ; 30.86 MHz ( period = 32.400 ns ) ; Calculator:calc|numberInput1[2] ; Calculator:calc|numberOutput[5] ; opt2       ; opt2     ; None                        ; None                      ; 24.900 ns               ;
+; N/A   ; 31.25 MHz ( period = 32.000 ns ) ; Calculator:calc|numberInput1[3] ; Calculator:calc|numberOutput[7] ; opt2       ; opt2     ; None                        ; None                      ; 25.500 ns               ;
+; N/A   ; 31.55 MHz ( period = 31.700 ns ) ; Calculator:calc|numberInput1[1] ; Calculator:calc|numberOutput[7] ; opt2       ; opt2     ; None                        ; None                      ; 25.200 ns               ;
+; N/A   ; 31.75 MHz ( period = 31.500 ns ) ; Calculator:calc|numberInput1[2] ; Calculator:calc|numberOutput[7] ; opt2       ; opt2     ; None                        ; None                      ; 25.400 ns               ;
+; N/A   ; 32.26 MHz ( period = 31.000 ns ) ; Calculator:calc|numberInput1[3] ; Calculator:calc|numberOutput[3] ; opt2       ; opt2     ; None                        ; None                      ; 25.200 ns               ;
+; N/A   ; 32.47 MHz ( period = 30.800 ns ) ; Calculator:calc|numberInput2[2] ; Calculator:calc|numberOutput[3] ; opt2       ; opt2     ; None                        ; None                      ; 25.100 ns               ;
+; N/A   ; 32.47 MHz ( period = 30.800 ns ) ; Calculator:calc|numberInput1[3] ; Calculator:calc|numberOutput[4] ; opt2       ; opt2     ; None                        ; None                      ; 24.800 ns               ;
+; N/A   ; 32.47 MHz ( period = 30.800 ns ) ; Calculator:calc|numberInput1[1] ; Calculator:calc|numberOutput[4] ; opt2       ; opt2     ; None                        ; None                      ; 24.800 ns               ;
+; N/A   ; 32.57 MHz ( period = 30.700 ns ) ; Calculator:calc|numberInput2[0] ; Calculator:calc|numberOutput[0] ; opt2       ; opt2     ; None                        ; None                      ; 25.300 ns               ;
+; N/A   ; 32.57 MHz ( period = 30.700 ns ) ; Calculator:calc|numberInput2[2] ; Calculator:calc|numberOutput[2] ; opt2       ; opt2     ; None                        ; None                      ; 25.100 ns               ;
+; N/A   ; 32.68 MHz ( period = 30.600 ns ) ; Calculator:calc|numberInput2[1] ; Calculator:calc|numberOutput[0] ; opt2       ; opt2     ; None                        ; None                      ; 25.300 ns               ;
+; N/A   ; 32.79 MHz ( period = 30.500 ns ) ; Calculator:calc|numberInput1[2] ; Calculator:calc|numberOutput[3] ; opt2       ; opt2     ; None                        ; None                      ; 25.100 ns               ;
+; N/A   ; 32.89 MHz ( period = 30.400 ns ) ; Calculator:calc|numberInput2[3] ; Calculator:calc|numberOutput[3] ; opt2       ; opt2     ; None                        ; None                      ; 24.800 ns               ;
+; N/A   ; 33.11 MHz ( period = 30.200 ns ) ; Calculator:calc|numberInput1[2] ; Calculator:calc|numberOutput[4] ; opt2       ; opt2     ; None                        ; None                      ; 24.600 ns               ;
+; N/A   ; 33.22 MHz ( period = 30.100 ns ) ; Calculator:calc|numberInput2[3] ; Calculator:calc|numberOutput[2] ; opt2       ; opt2     ; None                        ; None                      ; 24.600 ns               ;
+; N/A   ; 34.84 MHz ( period = 28.700 ns ) ; Calculator:calc|numberInput1[1] ; Calculator:calc|numberOutput[3] ; opt2       ; opt2     ; None                        ; None                      ; 22.900 ns               ;
+; N/A   ; 34.84 MHz ( period = 28.700 ns ) ; Calculator:calc|numberInput1[1] ; Calculator:calc|numberOutput[2] ; opt2       ; opt2     ; None                        ; None                      ; 23.000 ns               ;
+; N/A   ; 35.09 MHz ( period = 28.500 ns ) ; Calculator:calc|numberInput1[0] ; Calculator:calc|numberOutput[1] ; opt2       ; opt2     ; None                        ; None                      ; 19.500 ns               ;
+; N/A   ; 35.09 MHz ( period = 28.500 ns ) ; Calculator:calc|numberInput1[1] ; Calculator:calc|numberOutput[1] ; opt2       ; opt2     ; None                        ; None                      ; 19.500 ns               ;
+; N/A   ; 35.71 MHz ( period = 28.000 ns ) ; Calculator:calc|numberInput1[2] ; Calculator:calc|numberOutput[2] ; opt2       ; opt2     ; None                        ; None                      ; 22.700 ns               ;
+; N/A   ; 38.76 MHz ( period = 25.800 ns ) ; Calculator:calc|numberInput1[0] ; Calculator:calc|numberOutput[6] ; opt2       ; opt2     ; None                        ; None                      ; 18.100 ns               ;
+; N/A   ; 38.76 MHz ( period = 25.800 ns ) ; Calculator:calc|numberInput1[0] ; Calculator:calc|numberOutput[5] ; opt2       ; opt2     ; None                        ; None                      ; 17.900 ns               ;
+; N/A   ; 40.16 MHz ( period = 24.900 ns ) ; Calculator:calc|numberInput1[0] ; Calculator:calc|numberOutput[7] ; opt2       ; opt2     ; None                        ; None                      ; 18.400 ns               ;
+; N/A   ; 42.37 MHz ( period = 23.600 ns ) ; Calculator:calc|numberInput1[0] ; Calculator:calc|numberOutput[4] ; opt2       ; opt2     ; None                        ; None                      ; 17.600 ns               ;
+; N/A   ; 42.55 MHz ( period = 23.500 ns ) ; Calculator:calc|numberInput1[0] ; Calculator:calc|numberOutput[3] ; opt2       ; opt2     ; None                        ; None                      ; 17.700 ns               ;
+; N/A   ; 43.29 MHz ( period = 23.100 ns ) ; Calculator:calc|numberInput1[0] ; Calculator:calc|numberOutput[2] ; opt2       ; opt2     ; None                        ; None                      ; 17.400 ns               ;
+; N/A   ; 43.86 MHz ( period = 22.800 ns ) ; Calculator:calc|numberInput1[0] ; Calculator:calc|numberOutput[0] ; opt2       ; opt2     ; None                        ; None                      ; 17.300 ns               ;
++-------+----------------------------------+---------------------------------+---------------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+
+
++------------------------------------------------------------------------------------------+
+; tsu                                                                                      ;
++-------+--------------+------------+---------+---------------------------------+----------+
+; Slack ; Required tsu ; Actual tsu ; From    ; To                              ; To Clock ;
++-------+--------------+------------+---------+---------------------------------+----------+
+; N/A   ; None         ; 82.500 ns  ; opt2    ; LedOut1[5]~reg0                 ; clk      ;
+; N/A   ; None         ; 82.400 ns  ; opt1    ; LedOut1[5]~reg0                 ; clk      ;
+; N/A   ; None         ; 79.600 ns  ; opt2    ; LedOut1[3]~reg0                 ; clk      ;
+; N/A   ; None         ; 79.600 ns  ; opt2    ; LedOut1[6]~reg0                 ; clk      ;
+; N/A   ; None         ; 79.500 ns  ; opt1    ; LedOut1[3]~reg0                 ; clk      ;
+; N/A   ; None         ; 79.500 ns  ; opt1    ; LedOut1[6]~reg0                 ; clk      ;
+; N/A   ; None         ; 76.700 ns  ; opt2    ; LedOut1[0]~reg0                 ; clk      ;
+; N/A   ; None         ; 76.700 ns  ; opt2    ; LedOut1[2]~reg0                 ; clk      ;
+; N/A   ; None         ; 76.600 ns  ; opt1    ; LedOut1[0]~reg0                 ; clk      ;
+; N/A   ; None         ; 76.600 ns  ; opt1    ; LedOut1[2]~reg0                 ; clk      ;
+; N/A   ; None         ; 74.200 ns  ; opt2    ; LedOut1[1]~reg0                 ; clk      ;
+; N/A   ; None         ; 74.100 ns  ; opt1    ; LedOut1[1]~reg0                 ; clk      ;
+; N/A   ; None         ; 72.400 ns  ; opt2    ; LedOut2[3]~reg0                 ; clk      ;
+; N/A   ; None         ; 72.400 ns  ; opt2    ; LedOut2[5]~reg0                 ; clk      ;
+; N/A   ; None         ; 72.400 ns  ; opt2    ; LedOut2[6]~reg0                 ; clk      ;
+; N/A   ; None         ; 72.300 ns  ; opt1    ; LedOut2[3]~reg0                 ; clk      ;
+; N/A   ; None         ; 72.300 ns  ; opt1    ; LedOut2[5]~reg0                 ; clk      ;
+; N/A   ; None         ; 72.300 ns  ; opt1    ; LedOut2[6]~reg0                 ; clk      ;
+; N/A   ; None         ; 70.400 ns  ; opt2    ; LedOut1[4]~reg0                 ; clk      ;
+; N/A   ; None         ; 70.300 ns  ; opt1    ; LedOut1[4]~reg0                 ; clk      ;
+; N/A   ; None         ; 69.600 ns  ; opt2    ; LedOut2[0]~reg0                 ; clk      ;
+; N/A   ; None         ; 69.600 ns  ; opt2    ; LedOut2[1]~reg0                 ; clk      ;
+; N/A   ; None         ; 69.600 ns  ; opt2    ; LedOut2[2]~reg0                 ; clk      ;
+; N/A   ; None         ; 69.500 ns  ; opt1    ; LedOut2[0]~reg0                 ; clk      ;
+; N/A   ; None         ; 69.500 ns  ; opt1    ; LedOut2[1]~reg0                 ; clk      ;
+; N/A   ; None         ; 69.500 ns  ; opt1    ; LedOut2[2]~reg0                 ; clk      ;
+; N/A   ; None         ; 63.500 ns  ; opt2    ; LedOut2[4]~reg0                 ; clk      ;
+; N/A   ; None         ; 63.400 ns  ; opt1    ; LedOut2[4]~reg0                 ; clk      ;
+; N/A   ; None         ; 3.800 ns   ; opt1    ; optTemp1                        ; num2[0]  ;
+; N/A   ; None         ; 3.800 ns   ; num2[3] ; numTemp2[3]                     ; num2[0]  ;
+; N/A   ; None         ; 2.900 ns   ; num2[2] ; numTemp2[2]                     ; num2[0]  ;
+; N/A   ; None         ; 2.600 ns   ; num1[0] ; numTemp1[0]                     ; num2[0]  ;
+; N/A   ; None         ; 2.400 ns   ; num2[0] ; numTemp2[0]                     ; num2[0]  ;
+; N/A   ; None         ; 2.300 ns   ; num2[1] ; numTemp2[1]                     ; num2[0]  ;
+; N/A   ; None         ; 1.800 ns   ; num1[2] ; numTemp1[2]                     ; num2[0]  ;
+; N/A   ; None         ; 0.500 ns   ; num1[1] ; numTemp1[1]                     ; num2[0]  ;
+; N/A   ; None         ; 0.400 ns   ; opt1    ; optTemp1                        ; num1[0]  ;
+; N/A   ; None         ; 0.400 ns   ; num2[3] ; numTemp2[3]                     ; num1[0]  ;
+; N/A   ; None         ; 0.400 ns   ; num1[3] ; numTemp1[3]                     ; num2[0]  ;
+; N/A   ; None         ; -0.500 ns  ; num2[2] ; numTemp2[2]                     ; num1[0]  ;
+; N/A   ; None         ; -0.800 ns  ; num1[0] ; numTemp1[0]                     ; num1[0]  ;
+; N/A   ; None         ; -0.800 ns  ; opt1    ; optTemp1                        ; opt1     ;
+; N/A   ; None         ; -0.800 ns  ; num2[3] ; numTemp2[3]                     ; opt1     ;
+; N/A   ; None         ; -1.000 ns  ; num2[0] ; numTemp2[0]                     ; num1[0]  ;
+; N/A   ; None         ; -1.100 ns  ; num2[1] ; numTemp2[1]                     ; num1[0]  ;
+; N/A   ; None         ; -1.200 ns  ; opt1    ; optTemp1                        ; num2[2]  ;
+; N/A   ; None         ; -1.200 ns  ; num2[3] ; numTemp2[3]                     ; num2[2]  ;
+; N/A   ; None         ; -1.600 ns  ; opt1    ; optTemp1                        ; num1[3]  ;
+; N/A   ; None         ; -1.600 ns  ; num2[3] ; numTemp2[3]                     ; num1[3]  ;
+; N/A   ; None         ; -1.600 ns  ; num1[2] ; numTemp1[2]                     ; num1[0]  ;
+; N/A   ; None         ; -1.700 ns  ; opt1    ; optTemp1                        ; num1[1]  ;
+; N/A   ; None         ; -1.700 ns  ; num2[2] ; numTemp2[2]                     ; opt1     ;
+; N/A   ; None         ; -1.700 ns  ; num2[3] ; numTemp2[3]                     ; num1[1]  ;
+; N/A   ; None         ; -1.800 ns  ; opt1    ; Calculator:calc|numberOutput[5] ; opt1     ;
+; N/A   ; None         ; -1.900 ns  ; opt1    ; Calculator:calc|numberOutput[5] ; opt2     ;
+; N/A   ; None         ; -2.000 ns  ; num1[0] ; numTemp1[0]                     ; opt1     ;
+; N/A   ; None         ; -2.100 ns  ; opt1    ; optTemp1                        ; num2[3]  ;
+; N/A   ; None         ; -2.100 ns  ; opt1    ; Calculator:calc|numberOutput[6] ; opt1     ;
+; N/A   ; None         ; -2.100 ns  ; num2[2] ; numTemp2[2]                     ; num2[2]  ;
+; N/A   ; None         ; -2.100 ns  ; num2[3] ; numTemp2[3]                     ; num2[3]  ;
+; N/A   ; None         ; -2.200 ns  ; opt1    ; Calculator:calc|numberOutput[6] ; opt2     ;
+; N/A   ; None         ; -2.200 ns  ; num2[0] ; numTemp2[0]                     ; opt1     ;
+; N/A   ; None         ; -2.300 ns  ; num2[1] ; numTemp2[1]                     ; opt1     ;
+; N/A   ; None         ; -2.400 ns  ; num1[0] ; numTemp1[0]                     ; num2[2]  ;
+; N/A   ; None         ; -2.400 ns  ; opt1    ; Calculator:calc|numberOutput[1] ; opt1     ;
+; N/A   ; None         ; -2.500 ns  ; opt1    ; Calculator:calc|numberOutput[1] ; opt2     ;
+; N/A   ; None         ; -2.500 ns  ; num2[2] ; numTemp2[2]                     ; num1[3]  ;
+; N/A   ; None         ; -2.600 ns  ; num2[2] ; numTemp2[2]                     ; num1[1]  ;
+; N/A   ; None         ; -2.600 ns  ; num2[0] ; numTemp2[0]                     ; num2[2]  ;
+; N/A   ; None         ; -2.700 ns  ; num2[1] ; numTemp2[1]                     ; num2[2]  ;
+; N/A   ; None         ; -2.800 ns  ; num1[0] ; numTemp1[0]                     ; num1[3]  ;
+; N/A   ; None         ; -2.800 ns  ; num1[2] ; numTemp1[2]                     ; opt1     ;
+; N/A   ; None         ; -2.900 ns  ; num1[0] ; numTemp1[0]                     ; num1[1]  ;
+; N/A   ; None         ; -2.900 ns  ; num1[1] ; numTemp1[1]                     ; num1[0]  ;
+; N/A   ; None         ; -3.000 ns  ; num2[2] ; numTemp2[2]                     ; num2[3]  ;
+; N/A   ; None         ; -3.000 ns  ; num1[3] ; numTemp1[3]                     ; num1[0]  ;
+; N/A   ; None         ; -3.000 ns  ; num2[0] ; numTemp2[0]                     ; num1[3]  ;
+; N/A   ; None         ; -3.100 ns  ; num2[1] ; numTemp2[1]                     ; num1[3]  ;
+; N/A   ; None         ; -3.100 ns  ; num2[0] ; numTemp2[0]                     ; num1[1]  ;
+; N/A   ; None         ; -3.200 ns  ; num2[1] ; numTemp2[1]                     ; num1[1]  ;
+; N/A   ; None         ; -3.200 ns  ; num1[2] ; numTemp1[2]                     ; num2[2]  ;
+; N/A   ; None         ; -3.300 ns  ; num1[0] ; numTemp1[0]                     ; num2[3]  ;
+; N/A   ; None         ; -3.500 ns  ; num2[0] ; numTemp2[0]                     ; num2[3]  ;
+; N/A   ; None         ; -3.600 ns  ; num2[1] ; numTemp2[1]                     ; num2[3]  ;
+; N/A   ; None         ; -3.600 ns  ; num1[2] ; numTemp1[2]                     ; num1[3]  ;
+; N/A   ; None         ; -3.700 ns  ; num1[2] ; numTemp1[2]                     ; num1[1]  ;
+; N/A   ; None         ; -3.800 ns  ; opt1    ; Calculator:calc|numberOutput[7] ; opt1     ;
+; N/A   ; None         ; -3.900 ns  ; opt1    ; Calculator:calc|numberOutput[7] ; opt2     ;
+; N/A   ; None         ; -4.100 ns  ; num1[1] ; numTemp1[1]                     ; opt1     ;
+; N/A   ; None         ; -4.100 ns  ; num1[2] ; numTemp1[2]                     ; num2[3]  ;
+; N/A   ; None         ; -4.200 ns  ; num1[3] ; numTemp1[3]                     ; opt1     ;
+; N/A   ; None         ; -4.300 ns  ; opt1    ; optTemp1                        ; num1[2]  ;
+; N/A   ; None         ; -4.300 ns  ; num2[3] ; numTemp2[3]                     ; num1[2]  ;
+; N/A   ; None         ; -4.500 ns  ; num1[1] ; numTemp1[1]                     ; num2[2]  ;
+; N/A   ; None         ; -4.600 ns  ; num1[3] ; numTemp1[3]                     ; num2[2]  ;
+; N/A   ; None         ; -4.700 ns  ; opt1    ; Calculator:calc|numberOutput[4] ; opt1     ;
+; N/A   ; None         ; -4.800 ns  ; opt1    ; optTemp1                        ; num2[1]  ;
+; N/A   ; None         ; -4.800 ns  ; opt1    ; Calculator:calc|numberOutput[4] ; opt2     ;
+; N/A   ; None         ; -4.800 ns  ; num2[3] ; numTemp2[3]                     ; num2[1]  ;
+; N/A   ; None         ; -4.900 ns  ; num1[1] ; numTemp1[1]                     ; num1[3]  ;
+; N/A   ; None         ; -5.000 ns  ; num1[3] ; numTemp1[3]                     ; num1[3]  ;
+; N/A   ; None         ; -5.000 ns  ; num1[1] ; numTemp1[1]                     ; num1[1]  ;
+; N/A   ; None         ; -5.100 ns  ; opt1    ; Calculator:calc|numberOutput[3] ; opt1     ;
+; N/A   ; None         ; -5.100 ns  ; num1[3] ; numTemp1[3]                     ; num1[1]  ;
+; N/A   ; None         ; -5.200 ns  ; opt1    ; Calculator:calc|numberOutput[3] ; opt2     ;
+; N/A   ; None         ; -5.200 ns  ; num2[2] ; numTemp2[2]                     ; num1[2]  ;
+; N/A   ; None         ; -5.400 ns  ; opt1    ; Calculator:calc|numberOutput[2] ; opt1     ;
+; N/A   ; None         ; -5.400 ns  ; num1[1] ; numTemp1[1]                     ; num2[3]  ;
+; N/A   ; None         ; -5.500 ns  ; num1[0] ; numTemp1[0]                     ; num1[2]  ;
+; N/A   ; None         ; -5.500 ns  ; opt1    ; Calculator:calc|numberOutput[2] ; opt2     ;
+; N/A   ; None         ; -5.500 ns  ; num1[3] ; numTemp1[3]                     ; num2[3]  ;
+; N/A   ; None         ; -5.700 ns  ; num2[2] ; numTemp2[2]                     ; num2[1]  ;
+; N/A   ; None         ; -5.700 ns  ; num2[0] ; numTemp2[0]                     ; num1[2]  ;
+; N/A   ; None         ; -5.800 ns  ; num2[1] ; numTemp2[1]                     ; num1[2]  ;
+; N/A   ; None         ; -6.000 ns  ; num1[0] ; numTemp1[0]                     ; num2[1]  ;
+; N/A   ; None         ; -6.200 ns  ; opt1    ; Calculator:calc|numberOutput[0] ; opt1     ;
+; N/A   ; None         ; -6.200 ns  ; num2[0] ; numTemp2[0]                     ; num2[1]  ;
+; N/A   ; None         ; -6.300 ns  ; opt1    ; Calculator:calc|numberOutput[0] ; opt2     ;
+; N/A   ; None         ; -6.300 ns  ; num2[1] ; numTemp2[1]                     ; num2[1]  ;
+; N/A   ; None         ; -6.300 ns  ; num1[2] ; numTemp1[2]                     ; num1[2]  ;
+; N/A   ; None         ; -6.800 ns  ; num1[2] ; numTemp1[2]                     ; num2[1]  ;
+; N/A   ; None         ; -7.400 ns  ; num1[2] ; Calculator:calc|numberInput1[2] ; opt1     ;
+; N/A   ; None         ; -7.500 ns  ; num1[2] ; Calculator:calc|numberInput1[2] ; opt2     ;
+; N/A   ; None         ; -7.600 ns  ; num1[1] ; numTemp1[1]                     ; num1[2]  ;
+; N/A   ; None         ; -7.700 ns  ; num1[3] ; numTemp1[3]                     ; num1[2]  ;
+; N/A   ; None         ; -7.700 ns  ; num2[1] ; Calculator:calc|numberInput2[1] ; opt1     ;
+; N/A   ; None         ; -7.800 ns  ; num2[1] ; Calculator:calc|numberInput2[1] ; opt2     ;
+; N/A   ; None         ; -8.100 ns  ; num1[1] ; numTemp1[1]                     ; num2[1]  ;
+; N/A   ; None         ; -8.200 ns  ; num1[3] ; numTemp1[3]                     ; num2[1]  ;
+; N/A   ; None         ; -8.400 ns  ; num2[3] ; Calculator:calc|numberInput2[3] ; opt1     ;
+; N/A   ; None         ; -8.500 ns  ; num2[3] ; Calculator:calc|numberInput2[3] ; opt2     ;
+; N/A   ; None         ; -8.800 ns  ; num1[1] ; Calculator:calc|numberInput1[1] ; opt1     ;
+; N/A   ; None         ; -8.900 ns  ; num1[1] ; Calculator:calc|numberInput1[1] ; opt2     ;
+; N/A   ; None         ; -9.000 ns  ; num1[0] ; Calculator:calc|numberInput1[0] ; opt1     ;
+; N/A   ; None         ; -9.000 ns  ; num2[0] ; Calculator:calc|numberInput2[0] ; opt1     ;
+; N/A   ; None         ; -9.100 ns  ; num1[0] ; Calculator:calc|numberInput1[0] ; opt2     ;
+; N/A   ; None         ; -9.100 ns  ; num1[3] ; Calculator:calc|numberInput1[3] ; opt1     ;
+; N/A   ; None         ; -9.100 ns  ; num2[0] ; Calculator:calc|numberInput2[0] ; opt2     ;
+; N/A   ; None         ; -9.200 ns  ; num2[2] ; Calculator:calc|numberInput2[2] ; opt1     ;
+; N/A   ; None         ; -9.200 ns  ; num1[3] ; Calculator:calc|numberInput1[3] ; opt2     ;
+; N/A   ; None         ; -9.300 ns  ; num2[2] ; Calculator:calc|numberInput2[2] ; opt2     ;
++-------+--------------+------------+---------+---------------------------------+----------+
+
+
++-------------------------------------------------------------------------------+
+; tco                                                                           ;
++-------+--------------+------------+-----------------+------------+------------+
+; Slack ; Required tco ; Actual tco ; From            ; To         ; From Clock ;
++-------+--------------+------------+-----------------+------------+------------+
+; N/A   ; None         ; 18.400 ns  ; LedOut2[6]~reg0 ; LedOut2[6] ; clk        ;
+; N/A   ; None         ; 18.400 ns  ; LedOut2[5]~reg0 ; LedOut2[5] ; clk        ;
+; N/A   ; None         ; 18.400 ns  ; LedOut2[3]~reg0 ; LedOut2[3] ; clk        ;
+; N/A   ; None         ; 18.400 ns  ; LedOut2[2]~reg0 ; LedOut2[2] ; clk        ;
+; N/A   ; None         ; 18.300 ns  ; LedOut2[4]~reg0 ; LedOut2[4] ; clk        ;
+; N/A   ; None         ; 17.800 ns  ; LedOut2[1]~reg0 ; LedOut2[1] ; clk        ;
+; N/A   ; None         ; 17.800 ns  ; LedOut2[0]~reg0 ; LedOut2[0] ; clk        ;
+; N/A   ; None         ; 17.700 ns  ; LedOut1[6]~reg0 ; LedOut1[6] ; clk        ;
+; N/A   ; None         ; 17.700 ns  ; LedOut1[5]~reg0 ; LedOut1[5] ; clk        ;
+; N/A   ; None         ; 16.600 ns  ; LedOut1[4]~reg0 ; LedOut1[4] ; clk        ;
+; N/A   ; None         ; 16.600 ns  ; LedOut1[1]~reg0 ; LedOut1[1] ; clk        ;
+; N/A   ; None         ; 16.500 ns  ; LedOut1[0]~reg0 ; LedOut1[0] ; clk        ;
+; N/A   ; None         ; 16.400 ns  ; LedOut1[3]~reg0 ; LedOut1[3] ; clk        ;
+; N/A   ; None         ; 16.400 ns  ; LedOut1[2]~reg0 ; LedOut1[2] ; clk        ;
++-------+--------------+------------+-----------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------+
+; th                                                                                              ;
++---------------+-------------+------------+---------+---------------------------------+----------+
+; Minimum Slack ; Required th ; Actual th  ; From    ; To                              ; To Clock ;
++---------------+-------------+------------+---------+---------------------------------+----------+
+; N/A           ; None        ; 15.200 ns  ; num2[2] ; Calculator:calc|numberInput2[2] ; opt2     ;
+; N/A           ; None        ; 15.100 ns  ; num2[2] ; Calculator:calc|numberInput2[2] ; opt1     ;
+; N/A           ; None        ; 15.100 ns  ; num1[3] ; Calculator:calc|numberInput1[3] ; opt2     ;
+; N/A           ; None        ; 15.000 ns  ; num1[0] ; Calculator:calc|numberInput1[0] ; opt2     ;
+; N/A           ; None        ; 15.000 ns  ; num1[3] ; Calculator:calc|numberInput1[3] ; opt1     ;
+; N/A           ; None        ; 15.000 ns  ; num2[0] ; Calculator:calc|numberInput2[0] ; opt2     ;
+; N/A           ; None        ; 14.900 ns  ; num1[0] ; Calculator:calc|numberInput1[0] ; opt1     ;
+; N/A           ; None        ; 14.900 ns  ; num2[0] ; Calculator:calc|numberInput2[0] ; opt1     ;
+; N/A           ; None        ; 14.800 ns  ; num1[1] ; Calculator:calc|numberInput1[1] ; opt2     ;
+; N/A           ; None        ; 14.700 ns  ; num1[1] ; Calculator:calc|numberInput1[1] ; opt1     ;
+; N/A           ; None        ; 14.400 ns  ; num2[3] ; Calculator:calc|numberInput2[3] ; opt2     ;
+; N/A           ; None        ; 14.300 ns  ; num2[3] ; Calculator:calc|numberInput2[3] ; opt1     ;
+; N/A           ; None        ; 14.100 ns  ; num1[3] ; numTemp1[3]                     ; num2[1]  ;
+; N/A           ; None        ; 14.000 ns  ; num1[1] ; numTemp1[1]                     ; num2[1]  ;
+; N/A           ; None        ; 13.700 ns  ; num2[1] ; Calculator:calc|numberInput2[1] ; opt2     ;
+; N/A           ; None        ; 13.600 ns  ; num1[3] ; numTemp1[3]                     ; num1[2]  ;
+; N/A           ; None        ; 13.600 ns  ; num2[1] ; Calculator:calc|numberInput2[1] ; opt1     ;
+; N/A           ; None        ; 13.500 ns  ; num1[1] ; numTemp1[1]                     ; num1[2]  ;
+; N/A           ; None        ; 13.400 ns  ; num1[2] ; Calculator:calc|numberInput1[2] ; opt2     ;
+; N/A           ; None        ; 13.300 ns  ; num1[2] ; Calculator:calc|numberInput1[2] ; opt1     ;
+; N/A           ; None        ; 12.700 ns  ; num1[2] ; numTemp1[2]                     ; num2[1]  ;
+; N/A           ; None        ; 12.200 ns  ; opt1    ; Calculator:calc|numberOutput[0] ; opt2     ;
+; N/A           ; None        ; 12.200 ns  ; num2[1] ; numTemp2[1]                     ; num2[1]  ;
+; N/A           ; None        ; 12.200 ns  ; num1[2] ; numTemp1[2]                     ; num1[2]  ;
+; N/A           ; None        ; 12.100 ns  ; opt1    ; Calculator:calc|numberOutput[0] ; opt1     ;
+; N/A           ; None        ; 12.100 ns  ; num2[0] ; numTemp2[0]                     ; num2[1]  ;
+; N/A           ; None        ; 11.900 ns  ; num1[0] ; numTemp1[0]                     ; num2[1]  ;
+; N/A           ; None        ; 11.700 ns  ; num2[1] ; numTemp2[1]                     ; num1[2]  ;
+; N/A           ; None        ; 11.600 ns  ; num2[2] ; numTemp2[2]                     ; num2[1]  ;
+; N/A           ; None        ; 11.600 ns  ; num2[0] ; numTemp2[0]                     ; num1[2]  ;
+; N/A           ; None        ; 11.400 ns  ; num1[0] ; numTemp1[0]                     ; num1[2]  ;
+; N/A           ; None        ; 11.400 ns  ; opt1    ; Calculator:calc|numberOutput[2] ; opt2     ;
+; N/A           ; None        ; 11.400 ns  ; num1[3] ; numTemp1[3]                     ; num2[3]  ;
+; N/A           ; None        ; 11.300 ns  ; opt1    ; Calculator:calc|numberOutput[2] ; opt1     ;
+; N/A           ; None        ; 11.300 ns  ; num1[1] ; numTemp1[1]                     ; num2[3]  ;
+; N/A           ; None        ; 11.100 ns  ; opt1    ; Calculator:calc|numberOutput[3] ; opt2     ;
+; N/A           ; None        ; 11.100 ns  ; num2[2] ; numTemp2[2]                     ; num1[2]  ;
+; N/A           ; None        ; 11.000 ns  ; opt1    ; Calculator:calc|numberOutput[3] ; opt1     ;
+; N/A           ; None        ; 11.000 ns  ; num1[3] ; numTemp1[3]                     ; num1[1]  ;
+; N/A           ; None        ; 10.900 ns  ; num1[3] ; numTemp1[3]                     ; num1[3]  ;
+; N/A           ; None        ; 10.900 ns  ; num1[1] ; numTemp1[1]                     ; num1[1]  ;
+; N/A           ; None        ; 10.800 ns  ; num1[1] ; numTemp1[1]                     ; num1[3]  ;
+; N/A           ; None        ; 10.700 ns  ; opt1    ; optTemp1                        ; num2[1]  ;
+; N/A           ; None        ; 10.700 ns  ; opt1    ; Calculator:calc|numberOutput[4] ; opt2     ;
+; N/A           ; None        ; 10.700 ns  ; num2[3] ; numTemp2[3]                     ; num2[1]  ;
+; N/A           ; None        ; 10.600 ns  ; opt1    ; Calculator:calc|numberOutput[4] ; opt1     ;
+; N/A           ; None        ; 10.500 ns  ; num1[3] ; numTemp1[3]                     ; num2[2]  ;
+; N/A           ; None        ; 10.400 ns  ; num1[1] ; numTemp1[1]                     ; num2[2]  ;
+; N/A           ; None        ; 10.200 ns  ; opt1    ; optTemp1                        ; num1[2]  ;
+; N/A           ; None        ; 10.200 ns  ; num2[3] ; numTemp2[3]                     ; num1[2]  ;
+; N/A           ; None        ; 10.100 ns  ; num1[3] ; numTemp1[3]                     ; opt1     ;
+; N/A           ; None        ; 10.000 ns  ; num1[1] ; numTemp1[1]                     ; opt1     ;
+; N/A           ; None        ; 10.000 ns  ; num1[2] ; numTemp1[2]                     ; num2[3]  ;
+; N/A           ; None        ; 9.800 ns   ; opt1    ; Calculator:calc|numberOutput[7] ; opt2     ;
+; N/A           ; None        ; 9.700 ns   ; opt1    ; Calculator:calc|numberOutput[7] ; opt1     ;
+; N/A           ; None        ; 9.600 ns   ; num1[2] ; numTemp1[2]                     ; num1[1]  ;
+; N/A           ; None        ; 9.500 ns   ; num2[1] ; numTemp2[1]                     ; num2[3]  ;
+; N/A           ; None        ; 9.500 ns   ; num1[2] ; numTemp1[2]                     ; num1[3]  ;
+; N/A           ; None        ; 9.400 ns   ; num2[0] ; numTemp2[0]                     ; num2[3]  ;
+; N/A           ; None        ; 9.200 ns   ; num1[0] ; numTemp1[0]                     ; num2[3]  ;
+; N/A           ; None        ; 9.100 ns   ; num2[1] ; numTemp2[1]                     ; num1[1]  ;
+; N/A           ; None        ; 9.100 ns   ; num1[2] ; numTemp1[2]                     ; num2[2]  ;
+; N/A           ; None        ; 9.000 ns   ; num2[1] ; numTemp2[1]                     ; num1[3]  ;
+; N/A           ; None        ; 9.000 ns   ; num2[0] ; numTemp2[0]                     ; num1[1]  ;
+; N/A           ; None        ; 8.900 ns   ; num2[2] ; numTemp2[2]                     ; num2[3]  ;
+; N/A           ; None        ; 8.900 ns   ; num1[3] ; numTemp1[3]                     ; num1[0]  ;
+; N/A           ; None        ; 8.900 ns   ; num2[0] ; numTemp2[0]                     ; num1[3]  ;
+; N/A           ; None        ; 8.800 ns   ; num1[0] ; numTemp1[0]                     ; num1[1]  ;
+; N/A           ; None        ; 8.800 ns   ; num1[1] ; numTemp1[1]                     ; num1[0]  ;
+; N/A           ; None        ; 8.700 ns   ; num1[0] ; numTemp1[0]                     ; num1[3]  ;
+; N/A           ; None        ; 8.700 ns   ; num1[2] ; numTemp1[2]                     ; opt1     ;
+; N/A           ; None        ; 8.600 ns   ; num2[1] ; numTemp2[1]                     ; num2[2]  ;
+; N/A           ; None        ; 8.500 ns   ; num2[2] ; numTemp2[2]                     ; num1[1]  ;
+; N/A           ; None        ; 8.500 ns   ; num2[0] ; numTemp2[0]                     ; num2[2]  ;
+; N/A           ; None        ; 8.400 ns   ; opt1    ; Calculator:calc|numberOutput[1] ; opt2     ;
+; N/A           ; None        ; 8.400 ns   ; num2[2] ; numTemp2[2]                     ; num1[3]  ;
+; N/A           ; None        ; 8.300 ns   ; num1[0] ; numTemp1[0]                     ; num2[2]  ;
+; N/A           ; None        ; 8.300 ns   ; opt1    ; Calculator:calc|numberOutput[1] ; opt1     ;
+; N/A           ; None        ; 8.200 ns   ; num2[1] ; numTemp2[1]                     ; opt1     ;
+; N/A           ; None        ; 8.100 ns   ; opt1    ; Calculator:calc|numberOutput[6] ; opt2     ;
+; N/A           ; None        ; 8.100 ns   ; num2[0] ; numTemp2[0]                     ; opt1     ;
+; N/A           ; None        ; 8.000 ns   ; opt1    ; optTemp1                        ; num2[3]  ;
+; N/A           ; None        ; 8.000 ns   ; opt1    ; Calculator:calc|numberOutput[6] ; opt1     ;
+; N/A           ; None        ; 8.000 ns   ; num2[2] ; numTemp2[2]                     ; num2[2]  ;
+; N/A           ; None        ; 8.000 ns   ; num2[3] ; numTemp2[3]                     ; num2[3]  ;
+; N/A           ; None        ; 7.900 ns   ; num1[0] ; numTemp1[0]                     ; opt1     ;
+; N/A           ; None        ; 7.800 ns   ; opt1    ; Calculator:calc|numberOutput[5] ; opt2     ;
+; N/A           ; None        ; 7.700 ns   ; opt1    ; Calculator:calc|numberOutput[5] ; opt1     ;
+; N/A           ; None        ; 7.600 ns   ; opt1    ; optTemp1                        ; num1[1]  ;
+; N/A           ; None        ; 7.600 ns   ; num2[2] ; numTemp2[2]                     ; opt1     ;
+; N/A           ; None        ; 7.600 ns   ; num2[3] ; numTemp2[3]                     ; num1[1]  ;
+; N/A           ; None        ; 7.500 ns   ; opt1    ; optTemp1                        ; num1[3]  ;
+; N/A           ; None        ; 7.500 ns   ; num2[3] ; numTemp2[3]                     ; num1[3]  ;
+; N/A           ; None        ; 7.500 ns   ; num1[2] ; numTemp1[2]                     ; num1[0]  ;
+; N/A           ; None        ; 7.100 ns   ; opt1    ; optTemp1                        ; num2[2]  ;
+; N/A           ; None        ; 7.100 ns   ; num2[3] ; numTemp2[3]                     ; num2[2]  ;
+; N/A           ; None        ; 7.000 ns   ; num2[1] ; numTemp2[1]                     ; num1[0]  ;
+; N/A           ; None        ; 6.900 ns   ; num2[0] ; numTemp2[0]                     ; num1[0]  ;
+; N/A           ; None        ; 6.700 ns   ; num1[0] ; numTemp1[0]                     ; num1[0]  ;
+; N/A           ; None        ; 6.700 ns   ; opt1    ; optTemp1                        ; opt1     ;
+; N/A           ; None        ; 6.700 ns   ; num2[3] ; numTemp2[3]                     ; opt1     ;
+; N/A           ; None        ; 6.400 ns   ; num2[2] ; numTemp2[2]                     ; num1[0]  ;
+; N/A           ; None        ; 5.500 ns   ; opt1    ; optTemp1                        ; num1[0]  ;
+; N/A           ; None        ; 5.500 ns   ; num2[3] ; numTemp2[3]                     ; num1[0]  ;
+; N/A           ; None        ; 5.500 ns   ; num1[3] ; numTemp1[3]                     ; num2[0]  ;
+; N/A           ; None        ; 5.400 ns   ; num1[1] ; numTemp1[1]                     ; num2[0]  ;
+; N/A           ; None        ; 4.100 ns   ; num1[2] ; numTemp1[2]                     ; num2[0]  ;
+; N/A           ; None        ; 3.600 ns   ; num2[1] ; numTemp2[1]                     ; num2[0]  ;
+; N/A           ; None        ; 3.500 ns   ; num2[0] ; numTemp2[0]                     ; num2[0]  ;
+; N/A           ; None        ; 3.300 ns   ; num1[0] ; numTemp1[0]                     ; num2[0]  ;
+; N/A           ; None        ; 3.000 ns   ; num2[2] ; numTemp2[2]                     ; num2[0]  ;
+; N/A           ; None        ; 2.100 ns   ; opt1    ; optTemp1                        ; num2[0]  ;
+; N/A           ; None        ; 2.100 ns   ; num2[3] ; numTemp2[3]                     ; num2[0]  ;
+; N/A           ; None        ; -24.800 ns ; opt2    ; LedOut2[3]~reg0                 ; clk      ;
+; N/A           ; None        ; -24.800 ns ; opt2    ; LedOut2[6]~reg0                 ; clk      ;
+; N/A           ; None        ; -26.600 ns ; opt1    ; LedOut2[3]~reg0                 ; clk      ;
+; N/A           ; None        ; -26.600 ns ; opt1    ; LedOut2[6]~reg0                 ; clk      ;
+; N/A           ; None        ; -29.100 ns ; opt2    ; LedOut2[5]~reg0                 ; clk      ;
+; N/A           ; None        ; -30.300 ns ; opt2    ; LedOut2[1]~reg0                 ; clk      ;
+; N/A           ; None        ; -30.400 ns ; opt2    ; LedOut2[0]~reg0                 ; clk      ;
+; N/A           ; None        ; -30.600 ns ; opt2    ; LedOut2[4]~reg0                 ; clk      ;
+; N/A           ; None        ; -30.800 ns ; opt2    ; LedOut2[2]~reg0                 ; clk      ;
+; N/A           ; None        ; -30.900 ns ; opt1    ; LedOut2[5]~reg0                 ; clk      ;
+; N/A           ; None        ; -32.100 ns ; opt1    ; LedOut2[1]~reg0                 ; clk      ;
+; N/A           ; None        ; -32.200 ns ; opt1    ; LedOut2[0]~reg0                 ; clk      ;
+; N/A           ; None        ; -32.400 ns ; opt1    ; LedOut2[4]~reg0                 ; clk      ;
+; N/A           ; None        ; -32.600 ns ; opt1    ; LedOut2[2]~reg0                 ; clk      ;
+; N/A           ; None        ; -32.900 ns ; opt1    ; LedOut1[2]~reg0                 ; clk      ;
+; N/A           ; None        ; -33.000 ns ; opt2    ; LedOut1[2]~reg0                 ; clk      ;
+; N/A           ; None        ; -33.200 ns ; opt1    ; LedOut1[4]~reg0                 ; clk      ;
+; N/A           ; None        ; -33.300 ns ; opt2    ; LedOut1[4]~reg0                 ; clk      ;
+; N/A           ; None        ; -35.100 ns ; opt1    ; LedOut1[6]~reg0                 ; clk      ;
+; N/A           ; None        ; -35.200 ns ; opt2    ; LedOut1[6]~reg0                 ; clk      ;
+; N/A           ; None        ; -35.800 ns ; opt1    ; LedOut1[5]~reg0                 ; clk      ;
+; N/A           ; None        ; -35.900 ns ; opt2    ; LedOut1[5]~reg0                 ; clk      ;
+; N/A           ; None        ; -36.100 ns ; opt1    ; LedOut1[3]~reg0                 ; clk      ;
+; N/A           ; None        ; -36.200 ns ; opt2    ; LedOut1[3]~reg0                 ; clk      ;
+; N/A           ; None        ; -37.100 ns ; opt1    ; LedOut1[1]~reg0                 ; clk      ;
+; N/A           ; None        ; -37.200 ns ; opt2    ; LedOut1[1]~reg0                 ; clk      ;
+; N/A           ; None        ; -37.200 ns ; opt1    ; LedOut1[0]~reg0                 ; clk      ;
+; N/A           ; None        ; -37.300 ns ; opt2    ; LedOut1[0]~reg0                 ; clk      ;
++---------------+-------------+------------+---------+---------------------------------+----------+
+
+
++--------------------------+
+; Timing Analyzer Messages ;
++--------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Classic Timing Analyzer
+    Info: Version 9.0 Build 132 02/25/2009 SJ Web Edition
+    Info: Processing started: Tue Jun 14 12:22:08 2022
+Info: Command: quartus_tan --read_settings_files=off --write_settings_files=off CalculatorProject -c CalculatorProject
+Info: Started post-fitting delay annotation
+Info: Delay annotation completed successfully
+Warning: Timing Analysis is analyzing one or more combinational loops as latches
+    Warning: Node "numTemp2[0]" is a latch
+    Warning: Node "Calculator:calc|numberOutput[0]" is a latch
+    Warning: Node "Calculator:calc|numberOutput[1]" is a latch
+    Warning: Node "Calculator:calc|numberOutput[3]" is a latch
+    Warning: Node "Calculator:calc|numberOutput[2]" is a latch
+    Warning: Node "Calculator:calc|numberInput2[0]" is a latch
+    Warning: Node "Calculator:calc|numberInput1[0]" is a latch
+    Warning: Node "Calculator:calc|numberInput2[1]" is a latch
+    Warning: Node "Calculator:calc|numberOutput[7]" is a latch
+    Warning: Node "numTemp1[2]" is a latch
+    Warning: Node "numTemp2[1]" is a latch
+    Warning: Node "numTemp1[1]" is a latch
+    Warning: Node "numTemp1[3]" is a latch
+    Warning: Node "numTemp2[3]" is a latch
+    Warning: Node "numTemp2[2]" is a latch
+    Warning: Node "optTemp1" is a latch
+    Warning: Node "numTemp1[0]" is a latch
+    Warning: Node "Calculator:calc|numberOutput[6]" is a latch
+    Warning: Node "Calculator:calc|numberOutput[4]" is a latch
+    Warning: Node "Calculator:calc|numberOutput[5]" is a latch
+    Warning: Node "Calculator:calc|numberInput1[3]" is a latch
+    Warning: Node "Calculator:calc|numberInput2[3]" is a latch
+    Warning: Node "Calculator:calc|numberInput1[2]" is a latch
+    Warning: Node "Calculator:calc|numberInput2[2]" is a latch
+    Warning: Node "Calculator:calc|numberInput1[1]" is a latch
+Warning: Found pins functioning as undefined clocks and/or memory enables
+    Info: Assuming node "clk" is an undefined clock
+    Info: Assuming node "num2[0]" is a latch enable and/or memory write/read enable. Will not compute fmax for this pin.
+    Info: Assuming node "num1[2]" is a latch enable and/or memory write/read enable. Will not compute fmax for this pin.
+    Info: Assuming node "num2[1]" is a latch enable and/or memory write/read enable. Will not compute fmax for this pin.
+    Info: Assuming node "num1[1]" is a latch enable and/or memory write/read enable. Will not compute fmax for this pin.
+    Info: Assuming node "num1[3]" is a latch enable and/or memory write/read enable. Will not compute fmax for this pin.
+    Info: Assuming node "num2[3]" is a latch enable and/or memory write/read enable. Will not compute fmax for this pin.
+    Info: Assuming node "num2[2]" is a latch enable and/or memory write/read enable. Will not compute fmax for this pin.
+    Info: Assuming node "opt1" is a latch enable and/or memory write/read enable. Will not compute fmax for this pin.
+    Info: Assuming node "num1[0]" is a latch enable and/or memory write/read enable. Will not compute fmax for this pin.
+    Info: Assuming node "opt2" is a latch enable and/or memory write/read enable. Will not compute fmax for this pin.
+Warning: Found 15 node(s) in clock paths which may be acting as ripple and/or gated clocks -- node(s) analyzed as buffer(s) resulting in clock skew
+    Info: Detected ripple clock "numTemp1[0]" as buffer
+    Info: Detected ripple clock "optTemp1" as buffer
+    Info: Detected ripple clock "numTemp2[2]" as buffer
+    Info: Detected ripple clock "numTemp2[3]" as buffer
+    Info: Detected ripple clock "numTemp1[3]" as buffer
+    Info: Detected ripple clock "numTemp1[1]" as buffer
+    Info: Detected ripple clock "numTemp2[1]" as buffer
+    Info: Detected ripple clock "numTemp1[2]" as buffer
+    Info: Detected ripple clock "numTemp2[0]" as buffer
+    Info: Detected gated clock "process_0~24" as buffer
+    Info: Detected gated clock "process_0~21" as buffer
+    Info: Detected gated clock "Calculator:calc|process_0~0" as buffer
+    Info: Detected gated clock "process_0~15" as buffer
+    Info: Detected gated clock "process_0~16" as buffer
+    Info: Detected gated clock "process_0~2" as buffer
+Info: Clock "clk" has Internal fmax of 85.47 MHz between source register "counter[1]" and destination register "LedOut1[2]~reg0" (period= 11.7 ns)
+    Info: + Longest register to register delay is 7.700 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LC5_A21; Fanout = 4; REG Node = 'counter[1]'
+        Info: 2: + IC(0.500 ns) + CELL(2.700 ns) = 3.200 ns; Loc. = LC2_A21; Fanout = 14; COMB Node = 'Equal0~1'
+        Info: 3: + IC(3.300 ns) + CELL(1.200 ns) = 7.700 ns; Loc. = LC5_A23; Fanout = 1; REG Node = 'LedOut1[2]~reg0'
+        Info: Total cell delay = 3.900 ns ( 50.65 % )
+        Info: Total interconnect delay = 3.800 ns ( 49.35 % )
+    Info: - Smallest clock skew is 0.000 ns
+        Info: + Shortest clock path from clock "clk" to destination register is 7.000 ns
+            Info: 1: + IC(0.000 ns) + CELL(2.900 ns) = 2.900 ns; Loc. = PIN_91; Fanout = 17; CLK Node = 'clk'
+            Info: 2: + IC(4.100 ns) + CELL(0.000 ns) = 7.000 ns; Loc. = LC5_A23; Fanout = 1; REG Node = 'LedOut1[2]~reg0'
+            Info: Total cell delay = 2.900 ns ( 41.43 % )
+            Info: Total interconnect delay = 4.100 ns ( 58.57 % )
+        Info: - Longest clock path from clock "clk" to source register is 7.000 ns
+            Info: 1: + IC(0.000 ns) + CELL(2.900 ns) = 2.900 ns; Loc. = PIN_91; Fanout = 17; CLK Node = 'clk'
+            Info: 2: + IC(4.100 ns) + CELL(0.000 ns) = 7.000 ns; Loc. = LC5_A21; Fanout = 4; REG Node = 'counter[1]'
+            Info: Total cell delay = 2.900 ns ( 41.43 % )
+            Info: Total interconnect delay = 4.100 ns ( 58.57 % )
+    Info: + Micro clock to output delay of source is 1.400 ns
+    Info: + Micro setup delay of destination is 2.600 ns
+Info: Clock "opt1" has Internal fmax of 26.18 MHz between source register "Calculator:calc|numberInput2[1]" and destination register "Calculator:calc|numberOutput[6]" (period= 38.2 ns)
+    Info: + Longest register to register delay is 30.700 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LC5_B31; Fanout = 5; REG Node = 'Calculator:calc|numberInput2[1]'
+        Info: 2: + IC(2.800 ns) + CELL(2.700 ns) = 5.500 ns; Loc. = LC1_B30; Fanout = 12; COMB Node = 'Calculator:calc|lpm_mult:Mult0|mult_af01:auto_generated|cs1a[0]'
+        Info: 3: + IC(3.200 ns) + CELL(2.700 ns) = 11.400 ns; Loc. = LC4_B31; Fanout = 2; COMB Node = 'Calculator:calc|lpm_mult:Mult0|mult_af01:auto_generated|le3a[3]'
+        Info: 4: + IC(2.700 ns) + CELL(2.700 ns) = 16.800 ns; Loc. = LC2_B27; Fanout = 2; COMB Node = 'Calculator:calc|lpm_mult:Mult0|mult_af01:auto_generated|lpm_add_sub:op_1|addcore:adder|a_csnbuffer:result_node|cs_buffer[1]'
+        Info: 5: + IC(2.700 ns) + CELL(1.400 ns) = 20.900 ns; Loc. = LC4_B28; Fanout = 2; COMB Node = 'Calculator:calc|lpm_mult:Mult0|mult_af01:auto_generated|lpm_add_sub:op_3|addcore:adder|a_csnbuffer:result_node|cs_buffer[3]~COUT'
+        Info: 6: + IC(0.000 ns) + CELL(0.300 ns) = 21.200 ns; Loc. = LC5_B28; Fanout = 2; COMB Node = 'Calculator:calc|lpm_mult:Mult0|mult_af01:auto_generated|lpm_add_sub:op_3|addcore:adder|a_csnbuffer:result_node|cs_buffer[4]~COUT'
+        Info: 7: + IC(0.000 ns) + CELL(0.300 ns) = 21.500 ns; Loc. = LC6_B28; Fanout = 2; COMB Node = 'Calculator:calc|lpm_mult:Mult0|mult_af01:auto_generated|lpm_add_sub:op_3|addcore:adder|a_csnbuffer:result_node|cs_buffer[5]~COUT'
+        Info: 8: + IC(0.000 ns) + CELL(1.200 ns) = 22.700 ns; Loc. = LC7_B28; Fanout = 1; COMB Node = 'Calculator:calc|lpm_mult:Mult0|mult_af01:auto_generated|lpm_add_sub:op_3|addcore:adder|a_csnbuffer:result_node|cs_buffer[6]'
+        Info: 9: + IC(2.700 ns) + CELL(2.400 ns) = 27.800 ns; Loc. = LC2_B26; Fanout = 1; COMB Node = 'Calculator:calc|numberOutput~44'
+        Info: 10: + IC(0.500 ns) + CELL(2.400 ns) = 30.700 ns; Loc. = LC1_B26; Fanout = 10; REG Node = 'Calculator:calc|numberOutput[6]'
+        Info: Total cell delay = 16.100 ns ( 52.44 % )
+        Info: Total interconnect delay = 14.600 ns ( 47.56 % )
+    Info: - Smallest clock skew is -1.600 ns
+        Info: + Shortest clock path from clock "opt1" to destination register is 34.100 ns
+            Info: 1: + IC(0.000 ns) + CELL(10.300 ns) = 10.300 ns; Loc. = PIN_28; Fanout = 21; CLK Node = 'opt1'
+            Info: 2: + IC(10.600 ns) + CELL(2.400 ns) = 23.300 ns; Loc. = LC7_I9; Fanout = 51; COMB Node = 'Calculator:calc|process_0~0'
+            Info: 3: + IC(8.100 ns) + CELL(2.700 ns) = 34.100 ns; Loc. = LC1_B26; Fanout = 10; REG Node = 'Calculator:calc|numberOutput[6]'
+            Info: Total cell delay = 15.400 ns ( 45.16 % )
+            Info: Total interconnect delay = 18.700 ns ( 54.84 % )
+        Info: - Longest clock path from clock "opt1" to source register is 35.700 ns
+            Info: 1: + IC(0.000 ns) + CELL(10.300 ns) = 10.300 ns; Loc. = PIN_28; Fanout = 21; CLK Node = 'opt1'
+            Info: 2: + IC(10.600 ns) + CELL(2.400 ns) = 23.300 ns; Loc. = LC7_I9; Fanout = 51; COMB Node = 'Calculator:calc|process_0~0'
+            Info: 3: + IC(9.700 ns) + CELL(2.700 ns) = 35.700 ns; Loc. = LC5_B31; Fanout = 5; REG Node = 'Calculator:calc|numberInput2[1]'
+            Info: Total cell delay = 15.400 ns ( 43.14 % )
+            Info: Total interconnect delay = 20.300 ns ( 56.86 % )
+    Info: + Micro clock to output delay of source is 0.000 ns
+    Info: + Micro setup delay of destination is 5.900 ns
+Info: Clock "opt2" has Internal fmax of 26.18 MHz between source register "Calculator:calc|numberInput2[1]" and destination register "Calculator:calc|numberOutput[6]" (period= 38.2 ns)
+    Info: + Longest register to register delay is 30.700 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LC5_B31; Fanout = 5; REG Node = 'Calculator:calc|numberInput2[1]'
+        Info: 2: + IC(2.800 ns) + CELL(2.700 ns) = 5.500 ns; Loc. = LC1_B30; Fanout = 12; COMB Node = 'Calculator:calc|lpm_mult:Mult0|mult_af01:auto_generated|cs1a[0]'
+        Info: 3: + IC(3.200 ns) + CELL(2.700 ns) = 11.400 ns; Loc. = LC4_B31; Fanout = 2; COMB Node = 'Calculator:calc|lpm_mult:Mult0|mult_af01:auto_generated|le3a[3]'
+        Info: 4: + IC(2.700 ns) + CELL(2.700 ns) = 16.800 ns; Loc. = LC2_B27; Fanout = 2; COMB Node = 'Calculator:calc|lpm_mult:Mult0|mult_af01:auto_generated|lpm_add_sub:op_1|addcore:adder|a_csnbuffer:result_node|cs_buffer[1]'
+        Info: 5: + IC(2.700 ns) + CELL(1.400 ns) = 20.900 ns; Loc. = LC4_B28; Fanout = 2; COMB Node = 'Calculator:calc|lpm_mult:Mult0|mult_af01:auto_generated|lpm_add_sub:op_3|addcore:adder|a_csnbuffer:result_node|cs_buffer[3]~COUT'
+        Info: 6: + IC(0.000 ns) + CELL(0.300 ns) = 21.200 ns; Loc. = LC5_B28; Fanout = 2; COMB Node = 'Calculator:calc|lpm_mult:Mult0|mult_af01:auto_generated|lpm_add_sub:op_3|addcore:adder|a_csnbuffer:result_node|cs_buffer[4]~COUT'
+        Info: 7: + IC(0.000 ns) + CELL(0.300 ns) = 21.500 ns; Loc. = LC6_B28; Fanout = 2; COMB Node = 'Calculator:calc|lpm_mult:Mult0|mult_af01:auto_generated|lpm_add_sub:op_3|addcore:adder|a_csnbuffer:result_node|cs_buffer[5]~COUT'
+        Info: 8: + IC(0.000 ns) + CELL(1.200 ns) = 22.700 ns; Loc. = LC7_B28; Fanout = 1; COMB Node = 'Calculator:calc|lpm_mult:Mult0|mult_af01:auto_generated|lpm_add_sub:op_3|addcore:adder|a_csnbuffer:result_node|cs_buffer[6]'
+        Info: 9: + IC(2.700 ns) + CELL(2.400 ns) = 27.800 ns; Loc. = LC2_B26; Fanout = 1; COMB Node = 'Calculator:calc|numberOutput~44'
+        Info: 10: + IC(0.500 ns) + CELL(2.400 ns) = 30.700 ns; Loc. = LC1_B26; Fanout = 10; REG Node = 'Calculator:calc|numberOutput[6]'
+        Info: Total cell delay = 16.100 ns ( 52.44 % )
+        Info: Total interconnect delay = 14.600 ns ( 47.56 % )
+    Info: - Smallest clock skew is -1.600 ns
+        Info: + Shortest clock path from clock "opt2" to destination register is 34.200 ns
+            Info: 1: + IC(0.000 ns) + CELL(10.300 ns) = 10.300 ns; Loc. = PIN_29; Fanout = 11; CLK Node = 'opt2'
+            Info: 2: + IC(10.400 ns) + CELL(2.700 ns) = 23.400 ns; Loc. = LC7_I9; Fanout = 51; COMB Node = 'Calculator:calc|process_0~0'
+            Info: 3: + IC(8.100 ns) + CELL(2.700 ns) = 34.200 ns; Loc. = LC1_B26; Fanout = 10; REG Node = 'Calculator:calc|numberOutput[6]'
+            Info: Total cell delay = 15.700 ns ( 45.91 % )
+            Info: Total interconnect delay = 18.500 ns ( 54.09 % )
+        Info: - Longest clock path from clock "opt2" to source register is 35.800 ns
+            Info: 1: + IC(0.000 ns) + CELL(10.300 ns) = 10.300 ns; Loc. = PIN_29; Fanout = 11; CLK Node = 'opt2'
+            Info: 2: + IC(10.400 ns) + CELL(2.700 ns) = 23.400 ns; Loc. = LC7_I9; Fanout = 51; COMB Node = 'Calculator:calc|process_0~0'
+            Info: 3: + IC(9.700 ns) + CELL(2.700 ns) = 35.800 ns; Loc. = LC5_B31; Fanout = 5; REG Node = 'Calculator:calc|numberInput2[1]'
+            Info: Total cell delay = 15.700 ns ( 43.85 % )
+            Info: Total interconnect delay = 20.100 ns ( 56.15 % )
+    Info: + Micro clock to output delay of source is 0.000 ns
+    Info: + Micro setup delay of destination is 5.900 ns
+Info: tsu for register "LedOut1[5]~reg0" (data pin = "opt2", clock pin = "clk") is 82.500 ns
+    Info: + Longest pin to register delay is 86.900 ns
+        Info: 1: + IC(0.000 ns) + CELL(10.300 ns) = 10.300 ns; Loc. = PIN_29; Fanout = 11; CLK Node = 'opt2'
+        Info: 2: + IC(10.400 ns) + CELL(2.700 ns) = 23.400 ns; Loc. = LC7_I9; Fanout = 51; COMB Node = 'Calculator:calc|process_0~0'
+        Info: 3: + IC(6.100 ns) + CELL(2.000 ns) = 31.500 ns; Loc. = LC3_E13; Fanout = 1; COMB Node = 'Calculator:calc|Display:display1|Equal0~118'
+        Info: 4: + IC(0.000 ns) + CELL(2.000 ns) = 33.500 ns; Loc. = LC4_E13; Fanout = 1; COMB Node = 'Calculator:calc|Display:display1|Equal0~72'
+        Info: 5: + IC(3.000 ns) + CELL(2.400 ns) = 38.900 ns; Loc. = LC8_E23; Fanout = 1; COMB Node = 'Calculator:calc|Display:display1|Equal0~33'
+        Info: 6: + IC(0.500 ns) + CELL(2.700 ns) = 42.100 ns; Loc. = LC2_E23; Fanout = 1; COMB Node = 'Calculator:calc|Display:display1|Equal0~68'
+        Info: 7: + IC(2.800 ns) + CELL(2.700 ns) = 47.600 ns; Loc. = LC8_E26; Fanout = 1; COMB Node = 'Calculator:calc|Display:display1|Equal0~5'
+        Info: 8: + IC(2.800 ns) + CELL(2.400 ns) = 52.800 ns; Loc. = LC1_E20; Fanout = 5; COMB Node = 'Calculator:calc|Display:display1|Equal0~12'
+        Info: 9: + IC(5.900 ns) + CELL(2.400 ns) = 61.100 ns; Loc. = LC2_A1; Fanout = 2; COMB Node = 'Calculator:calc|Display:display1|Equal0~13'
+        Info: 10: + IC(0.500 ns) + CELL(2.700 ns) = 64.300 ns; Loc. = LC3_A1; Fanout = 3; COMB Node = 'Calculator:calc|Display:display1|Equal4~0'
+        Info: 11: + IC(3.700 ns) + CELL(2.700 ns) = 70.700 ns; Loc. = LC2_A23; Fanout = 1; COMB Node = 'Calculator:calc|Display:display1|WideNor0~2'
+        Info: 12: + IC(2.700 ns) + CELL(2.700 ns) = 76.100 ns; Loc. = LC2_A20; Fanout = 4; COMB Node = 'Calculator:calc|Display:display1|WideNor0~3'
+        Info: 13: + IC(3.000 ns) + CELL(2.400 ns) = 81.500 ns; Loc. = LC4_A23; Fanout = 3; COMB Node = 'Calculator:calc|Display:display1|WideOr3~0'
+        Info: 14: + IC(0.500 ns) + CELL(2.700 ns) = 84.700 ns; Loc. = LC6_A23; Fanout = 1; COMB Node = 'Calculator:calc|Display:display1|WideOr1'
+        Info: 15: + IC(0.500 ns) + CELL(1.700 ns) = 86.900 ns; Loc. = LC1_A23; Fanout = 1; REG Node = 'LedOut1[5]~reg0'
+        Info: Total cell delay = 44.500 ns ( 51.21 % )
+        Info: Total interconnect delay = 42.400 ns ( 48.79 % )
+    Info: + Micro setup delay of destination is 2.600 ns
+    Info: - Shortest clock path from clock "clk" to destination register is 7.000 ns
+        Info: 1: + IC(0.000 ns) + CELL(2.900 ns) = 2.900 ns; Loc. = PIN_91; Fanout = 17; CLK Node = 'clk'
+        Info: 2: + IC(4.100 ns) + CELL(0.000 ns) = 7.000 ns; Loc. = LC1_A23; Fanout = 1; REG Node = 'LedOut1[5]~reg0'
+        Info: Total cell delay = 2.900 ns ( 41.43 % )
+        Info: Total interconnect delay = 4.100 ns ( 58.57 % )
+Info: tco from clock "clk" to destination pin "LedOut2[6]" through register "LedOut2[6]~reg0" is 18.400 ns
+    Info: + Longest clock path from clock "clk" to source register is 7.000 ns
+        Info: 1: + IC(0.000 ns) + CELL(2.900 ns) = 2.900 ns; Loc. = PIN_91; Fanout = 17; CLK Node = 'clk'
+        Info: 2: + IC(4.100 ns) + CELL(0.000 ns) = 7.000 ns; Loc. = LC7_A19; Fanout = 1; REG Node = 'LedOut2[6]~reg0'
+        Info: Total cell delay = 2.900 ns ( 41.43 % )
+        Info: Total interconnect delay = 4.100 ns ( 58.57 % )
+    Info: + Micro clock to output delay of source is 1.400 ns
+    Info: + Longest register to pin delay is 10.000 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LC7_A19; Fanout = 1; REG Node = 'LedOut2[6]~reg0'
+        Info: 2: + IC(5.000 ns) + CELL(5.000 ns) = 10.000 ns; Loc. = PIN_24; Fanout = 0; PIN Node = 'LedOut2[6]'
+        Info: Total cell delay = 5.000 ns ( 50.00 % )
+        Info: Total interconnect delay = 5.000 ns ( 50.00 % )
+Info: th for register "Calculator:calc|numberInput2[2]" (data pin = "num2[2]", clock pin = "opt2") is 15.200 ns
+    Info: + Longest clock path from clock "opt2" to destination register is 35.900 ns
+        Info: 1: + IC(0.000 ns) + CELL(10.300 ns) = 10.300 ns; Loc. = PIN_29; Fanout = 11; CLK Node = 'opt2'
+        Info: 2: + IC(10.400 ns) + CELL(2.700 ns) = 23.400 ns; Loc. = LC7_I9; Fanout = 51; COMB Node = 'Calculator:calc|process_0~0'
+        Info: 3: + IC(9.800 ns) + CELL(2.700 ns) = 35.900 ns; Loc. = LC8_B32; Fanout = 5; REG Node = 'Calculator:calc|numberInput2[2]'
+        Info: Total cell delay = 15.700 ns ( 43.73 % )
+        Info: Total interconnect delay = 20.200 ns ( 56.27 % )
+    Info: + Micro hold delay of destination is 0.000 ns
+    Info: - Shortest pin to register delay is 20.700 ns
+        Info: 1: + IC(0.000 ns) + CELL(10.300 ns) = 10.300 ns; Loc. = PIN_34; Fanout = 3; CLK Node = 'num2[2]'
+        Info: 2: + IC(8.000 ns) + CELL(2.400 ns) = 20.700 ns; Loc. = LC8_B32; Fanout = 5; REG Node = 'Calculator:calc|numberInput2[2]'
+        Info: Total cell delay = 12.700 ns ( 61.35 % )
+        Info: Total interconnect delay = 8.000 ns ( 38.65 % )
+Info: Quartus II Classic Timing Analyzer was successful. 0 errors, 28 warnings
+    Info: Peak virtual memory: 195 megabytes
+    Info: Processing ended: Tue Jun 14 12:22:09 2022
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:01
+
+

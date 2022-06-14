@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="CalculatorProject">
+		<CBX_INST_ENTRY INSTANCE_NAME="|Main|Calculator:calc|lpm_divide:Div2" CBX_FILE_NAME="lpm_divide_ogo.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|Main|Calculator:calc|lpm_divide:Mod1" CBX_FILE_NAME="lpm_divide_bao.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|Main|Calculator:calc|lpm_add_sub:Add0" CBX_FILE_NAME="add_sub_u8h.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|Main|Calculator:calc|lpm_divide:Mod0" CBX_FILE_NAME="lpm_divide_bao.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|Main|Calculator:calc|lpm_mult:Mult0|mult_af01:auto_generated|lpm_add_sub:op_1" CBX_FILE_NAME="add_sub_v8h.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|Main|Calculator:calc|lpm_mult:Mult0|mult_af01:auto_generated|lpm_add_sub:op_3" CBX_FILE_NAME="add_sub_19h.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|Main|Calculator:calc|lpm_divide:Div0" CBX_FILE_NAME="lpm_divide_rgo.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|Main|Calculator:calc|lpm_divide:Mod3" CBX_FILE_NAME="lpm_divide_bao.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|Main|Calculator:calc|lpm_mult:Mult0" CBX_FILE_NAME="mult_af01.tdf"/>
+	</PROJECT>
+</LOG_ROOT>
